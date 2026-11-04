@@ -327,6 +327,25 @@ table tr.total td,.vtbl tr.vt-tot td{border-color:#6FA3D4!important}
 table tr.total td *,thead th *{color:inherit!important}
 table tr.total .up,table tr.total .stl[data-st=in],table tr.total .stl2[data-st=in]{color:#C8F5D2!important}
 table tr.total .dn{color:#FFD6D1!important}
+/* [4 พ.ย. 2026] ป้ายรอง "WTD/MTD" ในหัวตาราง: ขนาดอ่านง่าย ไม่จาง */
+thead th .h2l{display:block;font-size:11px!important;font-weight:700!important;opacity:1!important;color:#DDEBFA!important;line-height:1.25;margin-top:1px;letter-spacing:.3px}
+thead th{line-height:1.25}
+/* [4 พ.ย. 2026] คอลัมน์ตรึง: ใช้เส้นขอบแบบ separate (เส้นเป็นของแต่ละช่อง) กันตัวอักษรที่เลื่อนผ่านโผล่ตามรอยเส้น/ช่องว่าง */
+#tbl{border-collapse:separate!important;border-spacing:0!important;border-left:1px solid var(--grid)}
+#tbl th,#tbl td{border-width:0 1px 1px 0!important}
+#tbl thead tr:last-child th{border-bottom-width:2px!important}
+#tbl tr.total td{border-top-width:2px!important;border-bottom-width:2px!important}
+#tbl tbody td:nth-child(2){box-shadow:inset -2px 0 0 var(--line)!important}
+#tbl thead tr:first-child th:nth-child(2){box-shadow:inset -2px 0 0 #9CC3E6!important}
+#tbl tbody td:nth-child(1){box-shadow:-2px 0 0 var(--grid)!important}
+#tbl tbody tr.total td:nth-child(1){box-shadow:-2px 0 0 var(--hdr)!important}
+#tbl thead tr:first-child th:nth-child(1){box-shadow:-2px 0 0 var(--hdr)!important}
+/* sticky-gap fix v2 */
+#tbl tbody td:nth-child(1),#tbl thead tr:first-child th:nth-child(1){left:-1px!important;border-left:2px solid var(--grid)!important;box-shadow:none!important}
+#tbl thead tr:first-child th:nth-child(1),#tbl tbody tr.total td:nth-child(1){border-left-color:var(--hdr)!important}
+#tbl tbody td:nth-child(2),#tbl thead tr:first-child th:nth-child(2){left:calc(var(--c1w) - 2px)!important}
+#tbl tbody td:nth-child(2){box-shadow:inset -2px 0 0 var(--line),inset 1px 0 0 var(--grid)!important}
+#tbl thead tr:first-child th:nth-child(2){box-shadow:inset -2px 0 0 #9CC3E6,inset 1px 0 0 var(--hdrLine)!important}
 
 /* ===== [4 พ.ย. 2026] กลุ่มแท็บ + ตัวกรองเพิ่มเติม + กราฟ GIA เข้มขึ้น ===== */
 svg rect[fill="#5B88B2"]{fill:#2F8FD3!important}
@@ -2489,6 +2508,10 @@ try{(function(){
     else gb.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.g===g)))};
   new MutationObserver(sync).observe(tabsEl,{subtree:true,attributes:true,attributeFilter:['aria-selected']});
   sync();
+  // ---- [4 พ.ย. 2026] ตรึง 2 คอลัมน์แรกให้ถูกตำแหน่งทุกตาราง (เดิมบางแท็บ เช่น Staff ไม่ได้ตั้ง --c1w ทำให้เลื่อนแนวนอนแล้วคอลัมน์ทับกัน) ----
+  const tblEl=document.getElementById('tbl');
+  const setC1=()=>{if(!tblEl)return;const c1=tblEl.querySelector('thead tr:first-child th');if(!c1)return;const w=c1.getBoundingClientRect().width;if(w>0)tblEl.style.setProperty('--c1w',w+'px')};
+  if(tblEl){new MutationObserver(()=>requestAnimationFrame(setC1)).observe(tblEl,{childList:true,subtree:true});window.addEventListener('resize',()=>requestAnimationFrame(setC1));setC1()}
   // ---- ตัวกรองเพิ่มเติม ----
   const bar=document.querySelector('.bar-in');if(!bar)return;
   const KEEP=['ช่วงเวลา','วันที่','area (เลือกได้หลายรายการ)','มุมมอง','หน่วย (แท็บ focus/acc)','โหมด','stock','มุมมองเป้า'];
