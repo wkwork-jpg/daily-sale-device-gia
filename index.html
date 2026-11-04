@@ -260,6 +260,31 @@ body:has(#tbl:hover) #btnPng,
 /* [3 พ.ย. 2026] แคป 2 ตาราง: ซ่อนปุ่ม/ตัวเลือกในรูป */
 #tblBoth.pshooting #iPick,#tblBoth.pshooting #btnGia,#tblBoth.pshooting #giaPick,#tblBoth.pshooting #tblRight,#tblBoth.pshooting #tblHint button,#tblBoth.pshooting #tblHint .seg,#tblBoth.pshooting #a2Clr,#tblBoth.pshooting #btnPng,#tblBoth.pshooting #tblFoot{display:none!important}
 #tblBoth.pshooting{padding:10px 14px;background:#fff}
+
+/* ===== [4 พ.ย. 2026] ธีมสีโทนอ่อนชุดเดียวทั้ง Dashboard ===== */
+:root{--t2b:#F7C9A1;--t2f:#7A3608;--t3b:#FFF1BA;--t3f:#6B5200;--hdr:#CFDCEA;--hdr2:#DEE7F1;--hdrInk:#15293D;--hdrLine:#6F8CAB}
+/* ปุ่มที่เลือก + แท็บ: พื้นอ่อน ตัวอักษร/ขอบเข้ม */
+.seg button[aria-pressed=true]{background:#E3ECF7!important;color:#1F3A5F!important;box-shadow:inset 0 0 0 1px #8FA9C6;font-weight:700}
+.tab[aria-selected=true]{background:color-mix(in srgb,var(--tc,#2F3A4A) 13%,#fff)!important;border-color:var(--tc,#2F3A4A)!important;color:#1F3347!important;font-weight:700}
+#btnXls{background:#E6F2EA!important;color:#1D6F42!important;border-color:#7FB08F!important}
+/* หัวตาราง + TOTAL ชุดสีเดียว (โทนน้ำเงินเทาอ่อน) — แถบสีบางด้านบนบอกกลุ่ม */
+thead th,.vtbl th,th.stk{background:var(--hdr2)!important;color:var(--hdrInk)!important}
+thead tr:first-child th{background:var(--hdr)!important}
+table:has(> thead){border-top:3px solid var(--hc,#3D5A80)}
+thead tr:last-child th{border-bottom:2px solid var(--hdrLine)!important}
+thead th,.vtbl th{border-color:#A9BCD0!important;font-weight:700}
+thead th *{color:inherit}
+table tr.total td,.vtbl tr.vt-tot td,.pshooting tr.total td,.shooting .shotwrap tr.total td{background:var(--hdr)!important;color:var(--hdrInk)!important;font-weight:700;border-top:2px solid var(--hdrLine)!important;border-bottom:2px solid var(--hdrLine)!important}
+table tr.total .stl[data-st=in],table tr.total .stl2[data-st=in]{color:#1f6b2a!important}
+table tr.total .stl[data-st=out],table tr.total .stl2[data-st=out]{color:var(--hdrInk)!important}
+/* QTY/GAP: ใช้สีตัวอักษรอย่างเดียว (สีพื้นเก็บไว้ให้ %ACH) */
+td.cf-qp{background:transparent!important;color:#2F5E1F!important}
+td.cf-q0{background:transparent!important;color:#B3261E!important}
+/* heatmap เข้ม → อ่อน */
+.cf-g4{background:#A5D6A7;color:#14451A}.cf-g5{background:#7CC47F;color:#0E3512}
+.cf-h4{background:#A9CBEA;color:#123E66}.cf-h5{background:#7FB0DE;color:#0D2F4F}
+/* การ์ด %ACH รายหัวข้อ: ขอบซ้ายสีเดียว */
+#sumBox .scard{border-left-color:#9FB3C8!important}
 </style>
 </head>
 <body>
@@ -497,7 +522,7 @@ function cmpCols(g,gc,cur,prev,R){if(!(S.cmp&&R.pOk))return[];return[{g,gc,h:R.p
 function cmpBlock(g,k,R,u,gc){return cmpCols(g,gc,r=>val(r,k,u),r=>pval(r,k,u),R)}
 const BUILTIN={
  dev:{title:'Device',color:'#2E4A66',tm:['DEV'],cols:R=>[...stdBlock('QTY','DEV',R,'q'),...cmpBlock('QTY','DEV',R,'q'),...stdBlock('NET AMOUNT','DEV',R,'n'),...cmpBlock('NET AMOUNT','DEV',R,'n')]},
- gia:{title:'GIA (G · I · A · AirPods)',color:'#4B3A5A',tm:['GIA','G','I','A','AP'],cols:R=>{
+ gia:{title:'GIA (G · I · A · AirPods)',color:'#5B88B2',tm:['GIA','G','I','A','AP'],cols:R=>{
    const c=[...stdBlock('GIA รวม QTY','GIA',R,'q')];
    /* [20 ต.ค. 2026] เอาคอลัมน์ ATT% (GIA÷Device) ออกตามที่ขอ */
    c.push(...cmpBlock('GIA รวม QTY','GIA',R,'q'));
@@ -710,8 +735,8 @@ function render(){
   $('kpis').innerHTML=(CARDS||[
     ['Device QTY','#2E4A66',f0(dq),`เป้า ${f0(tD)} ${tag(dv(dq,tD))}${rrK(dq,tD)}${stK('DEV')} ${del(dq,pq(T,'DEV'))}`],
     ['Device NET (บาท)','#2E4A66',f0(dn),`เป้า ${f0(tDn)} ${tag(dv(dn,tDn))}${rrK(dn,tDn)} ${del(dn,pn(T,'DEV'))}`],
-    ['GIA QTY','#4B3A5A',f0(gq),`เป้า ${f0(tG)} ${tag(dv(gq,tG))}${rrK(gq,tG)}${stK('GIA')} ${del(gq,pq(T,'GIA'))}`],
-    ['GIA NET (บาท)','#4B3A5A',f0(n(T,'GIA')),(()=>{/* [23 ต.ค. 2026] แทนการ์ด ATT% */const gn=n(T,'GIA'),tGn=tgv(T,'GIA','n');return `เป้า ${f0(tGn)} ${tag(dv(gn,tGn))}${rrK(gn,tGn)} ${del(gn,pn(T,'GIA'))}`})()]
+    ['GIA QTY','#5B88B2',f0(gq),`เป้า ${f0(tG)} ${tag(dv(gq,tG))}${rrK(gq,tG)}${stK('GIA')} ${del(gq,pq(T,'GIA'))}`],
+    ['GIA NET (บาท)','#5B88B2',f0(n(T,'GIA')),(()=>{/* [23 ต.ค. 2026] แทนการ์ด ATT% */const gn=n(T,'GIA'),tGn=tgv(T,'GIA','n');return `เป้า ${f0(tGn)} ${tag(dv(gn,tGn))}${rrK(gn,tGn)} ${del(gn,pn(T,'GIA'))}`})()]
   ]).map(([k,c,v,s])=>`<div class="kpi" style="--c:${c}"><div class="k">${k}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join('');
   $('accTop').innerHTML='';$('velTop').innerHTML='';$('velBottom').innerHTML='';{const tp=$('trend').closest('section');if(tp)tp.hidden=tab.id==='vel'||(tab.id==='sth'||tab.id==='sduo')||tab.id==='v18'}
   if(tab.id!=='vel'&&tab.id!=='sth'&&tab.id!=='sduo'&&tab.id!=='v18')drawTrend(R,list,tab);if(tab.id==='staff'){drawItemPick({});drawStaff(tab,R,list)}else if(tab.id==='vel'){drawItemPick({});drawVel(tab,R,list)}else if((tab.id==='sth'||tab.id==='sduo')){drawItemPick({});drawSth(tab,R,list)}else if(tab.id==='v18'){drawItemPick({});drawV18(tab,R,list)}else drawTable(tab,rows,T,R);{const ps=S.level==='shop'&&S.pk?list.find(s=>s.code===S.pk):null;const bar=$('pkBar');
@@ -1827,10 +1852,10 @@ function drawModels(tab,R,list){
 function trendSeries(tab){
   // ชุดข้อมูลของกราฟตามแท็บที่เลือก (หน่วยตามปุ่ม QTY/NET; ปุ่ม QTY+NET ใช้ QTY)
   const un=S.unit==='n'?1:0,U=un?'NET':'QTY';
-  const dvgi=()=>({ser:[{l:'Device QTY',c:'#2E4A66',ks:[MI.DEV],u:0},{l:'GIA QTY',c:'#9b6bb0',ks:[MI.GIA],u:0}],title:''});
+  const dvgi=()=>({ser:[{l:'Device QTY',c:'#2E4A66',ks:[MI.DEV],u:0},{l:'GIA QTY',c:'#5B88B2',ks:[MI.GIA],u:0}],title:''});
   /* [24 ต.ค. 2026] แท็บ Device = กราฟ Device อย่างเดียว · แท็บ GIA = GIA อย่างเดียว (หน่วยตามปุ่ม) */
   if(tab&&tab.id==='dev')return {ser:[{l:'Device '+U,c:'#2E4A66',ks:[MI.DEV],u:un}],title:'Device ('+U+')'};
-  if(tab&&tab.id==='gia')return {ser:[{l:'GIA '+U,c:'#4B3A5A',ks:[MI.GIA],u:un}],title:'GIA ('+U+')'};
+  if(tab&&tab.id==='gia')return {ser:[{l:'GIA '+U,c:'#5B88B2',ks:[MI.GIA],u:un}],title:'GIA ('+U+')'};
   if(!tab||tab.id==='staff')return dvgi();
   if(tab.id==='acc'){const k=MI['A'];return k==null?dvgi():{ser:[{l:'ACC รวม '+U,c:tab.color,ks:[k],u:un}],title:tab.title+' ('+U+')'}}
   if(tab.ti!=null&&D.tabs[tab.ti]){const t=D.tabs[tab.ti];const pk=S.ipick[tab.ti];
@@ -2256,16 +2281,16 @@ tr.total td.fz,tr.sub td.fz{z-index:3}
       const c=p.p?(p.a-p.p)/p.p:null;s+=`<text x="${cx}" y="${H-7}" font-size="10" text-anchor="middle" fill="${c==null?'var(--ink2)':c>=0?'var(--up)':'var(--dn)'}">${c==null?'—':(c>=0?'▲ +':'▼ ')+(c*100).toFixed(1)+'%'}</text>`;
       if(p.r==null){pen=false;return}const yy=yr(p.r);path+=(pen?'L':'M')+cx.toFixed(1)+' '+yy.toFixed(1)+' ';pen=true;
       dots.push(`<circle cx="${cx}" cy="${yy}" r="4" fill="#fff" stroke="${achC(p.r)}" stroke-width="2.2"><title>W${isoWeek(p.w)} %ACH ${pct(p.r)}</title></circle><text x="${cx}" y="${yy-8}" font-size="10.5" font-weight="700" text-anchor="middle" fill="${achC(p.r)}" stroke="#fff" stroke-width="3" paint-order="stroke">${pct(p.r)}</text>`)});
-    if(path)s+=`<path d="${path}" fill="none" stroke="#8A6D23" stroke-width="2"/>`;
+    if(path)s+=`<path d="${path}" fill="none" stroke="#4A5568" stroke-width="2"/>`;
     return s+LB.join('')+dots.join('')+'</svg>';
   }
   function drawWeekly(tab,R,list){
     const u=UNIT(),selW=mondayOf(R.effB);
-    const specs=tab.id==='sum'?[{l:'Device',c:'#2E4A66',ks:[MI.DEV]},{l:'GIA',c:'#4B3A5A',ks:[MI.GIA]}]:[wkSpec(tab)];
+    const specs=tab.id==='sum'?[{l:'Device',c:'#2E4A66',ks:[MI.DEV]},{l:'GIA',c:'#5B88B2',ks:[MI.GIA]}]:[wkSpec(tab)];
     const ttl=tab.id==='sum'?'แนวโน้มรายสัปดาห์ — Device / GIA ('+UL(u)+')':'แนวโน้มรายสัปดาห์ — '+specs[0].l+' ('+UL(u)+')';
     let h=`<h2 style="display:flex;align-items:center;gap:6px;flex-wrap:wrap"><span>${_e(ttl)}</span><button type="button" class="chip" id="wkTg" aria-pressed="${!!S.wk}" style="font-size:11.5px;padding:2px 9px">${S.wk?'ซ่อนกราฟ':'แสดงกราฟ'}</button>${S.wk?'<button type="button" class="chip pshot" data-shot="wkPanel" style="font-size:12px;padding:3px 10px" title="บันทึกเป็นรูป">📷</button>':''}</h2>`;
     if(S.wk){
-      h+=`<div class="legend"><span><i style="background:${specs.length>1?'#7A8796':specs[0].c}"></i>ยอดรายสัปดาห์ ${UL(u)} (แกนซ้าย · สัปดาห์ที่เลือกสีเข้ม)</span><span><i style="background:#8A6D23;height:3px;border-radius:0;vertical-align:3px"></i>%ACH (แกนขวา)</span><span><i style="background:none;border-top:2px dashed #2F5E1F;height:0;border-radius:0;vertical-align:3px;width:16px"></i>เป้าหมาย 100%</span></div>`;
+      h+=`<div class="legend"><span><i style="background:${specs.length>1?'#7A8796':specs[0].c}"></i>ยอดรายสัปดาห์ ${UL(u)} (แกนซ้าย · สัปดาห์ที่เลือกสีเข้ม)</span><span><i style="background:#4A5568;height:3px;border-radius:0;vertical-align:3px"></i>%ACH (แกนขวา)</span><span><i style="background:none;border-top:2px dashed #2F5E1F;height:0;border-radius:0;vertical-align:3px;width:16px"></i>เป้าหมาย 100%</span></div>`;
       h+=`<div class="wkgrid">`+specs.map(sp=>`<div>${specs.length>1?`<h3 style="color:${sp.c}">${_e(sp.l)}</h3>`:''}<div class="chartbox">${wkSvg(specs.length>1?480:720,sp,list,u,selW)}</div></div>`).join('')+`</div>`;
       const cut=velCut(lastD);
       h+=`<div class="wknote">สัปดาห์ จ–อา (12 สัปดาห์ล่าสุด) · ตัวกรอง Area / Type Shop / กลุ่มสาขา / สาขามีผล แต่ไม่ขึ้นกับช่วงเวลา · เป้าหมาย = เป้าเดือน ÷ จำนวนวันของเดือน × วันที่มีข้อมูลในสัปดาห์ · ▲▼ = %WoW เทียบวันเดียวกันของสัปดาห์ก่อน${cut?` · สัปดาห์ล่าสุดมีข้อมูลถึง ${thd(lastD)} ${cut.lbl} น. (%ACH ยังไม่ครบวัน)`:''}</div>`}
