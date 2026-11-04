@@ -285,6 +285,53 @@ td.cf-q0{background:transparent!important;color:#B3261E!important}
 .cf-h4{background:#A9CBEA;color:#123E66}.cf-h5{background:#7FB0DE;color:#0D2F4F}
 /* การ์ด %ACH รายหัวข้อ: ขอบซ้ายสีเดียว */
 #sumBox .scard{border-left-color:#9FB3C8!important}
+
+/* ===== [4 พ.ย. 2026] ธีม True-dtac (ตามเว็บ true.th) — ไม่ใช้แดง ยกเว้นแถบไล่สีบนหัวเว็บ ===== */
+:root{--bg:#F9F9FC;--hdr:#2F7BBF;--hdr2:#4A90CF;--hdrInk:#FFFFFF;--hdrLine:#1D5D96;--tb:#007AD0;--tbL:#E8F2FB;--tbInk:#005A9E;--tbLine:#8CC0E8}
+body{background:radial-gradient(1200px 380px at 85% -60px,#E4EEFF 0,rgba(228,238,255,0) 70%),radial-gradient(900px 340px at 10% -80px,#F1EAFB 0,rgba(241,234,251,0) 70%),#F9F9FC!important}
+.bar{background:transparent!important;border-bottom:0!important}
+header.top{background:linear-gradient(105deg,#F4EFFC 0%,#FFFFFF 42%,#EEF4FF 100%);border-radius:16px;padding:18px 22px 16px!important;margin-top:12px;box-shadow:0 4px 16px rgba(48,60,70,.07);position:relative;overflow:hidden;border:1px solid #E9E8F3}
+header.top::before{content:"";position:absolute;left:0;top:0;right:0;height:5px;background:linear-gradient(90deg,#E00000 0%,#E8287A 40%,#8A3FE0 72%,#2F6FED 100%)}
+header.top h1{color:#303C46;font-size:24px}
+header.top h1::before{content:"";display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--tb);margin-right:10px;vertical-align:3px;box-shadow:0 0 0 4px #D6E9F8}
+.panel,.kpi,#sumBox .scard,.scroll,.bar-in{border-radius:14px!important;box-shadow:0 2px 12px rgba(48,60,70,.06)!important;border:1px solid #ECEDF1}
+.kpi{border-top:0!important;position:relative;overflow:hidden}
+.kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,#007AD0,#6A8DEB)}
+.kpi .v{color:#303C46}
+.seg{border-color:#DADDE3!important;border-radius:9px!important}
+.seg button[aria-pressed=true]{background:var(--tbL)!important;color:var(--tbInk)!important;box-shadow:inset 0 0 0 1px var(--tbLine)!important}
+.tab{border-color:#E2E4E9!important;color:#595959!important;background:#fff!important}
+.tab[aria-selected=true]{background:var(--tbL)!important;border-color:var(--tbLine)!important;color:var(--tbInk)!important}
+.tab:hover{background:#F2F7FC!important}
+.chip[aria-pressed=true]{background:#EEF1F6!important;border-color:#AEB6C2!important;color:#303C46!important}
+table:has(> thead){border-top:3px solid var(--tb)!important}
+#sumBox .scard{border-left:4px solid #B8D4EE!important}
+.panel h2,.tblhead .t{color:#303C46}
+td.name.link{color:#007AD0}
+svg rect[fill="#2E4A66"]{fill:#007AD0}
+svg rect[fill="#5B88B2"]{fill:#7FC0EC}
+
+/* [4 พ.ย. 2026] หัว/ท้ายตารางน้ำเงินเข้ม ตัวอักษรขาว (แบบ 3) */
+thead th,.vtbl th{border-color:#6FA3D4!important}
+table tr.total td,.vtbl tr.vt-tot td{border-color:#6FA3D4!important}
+table tr.total td *,thead th *{color:inherit!important}
+table tr.total .up,table tr.total .stl[data-st=in],table tr.total .stl2[data-st=in]{color:#C8F5D2!important}
+table tr.total .dn{color:#FFD6D1!important}
+
+/* ===== [4 พ.ย. 2026] กลุ่มแท็บ + ตัวกรองเพิ่มเติม + กราฟ GIA เข้มขึ้น ===== */
+svg rect[fill="#5B88B2"]{fill:#2F8FD3!important}
+.bar-in .fx-more{display:none!important}
+.bar-in.fx-open .fx-more{display:flex!important}
+#fxMoreBtn{font:inherit;font-size:13px;border:1px solid #8CC0E8;background:#E8F2FB;color:#005A9E;border-radius:9px;padding:7px 12px;cursor:pointer;font-weight:700;white-space:nowrap}
+#fxMoreBtn .dot{display:none;width:8px;height:8px;border-radius:50%;background:#E8820C;margin-left:6px;vertical-align:1px}
+#fxMoreBtn.on .dot{display:inline-block}
+#tabGroups{display:flex;flex-wrap:wrap;gap:8px;padding:6px 0 6px}
+#tabGroups button{font:inherit;font-size:14px;font-weight:700;border:1px solid #DADDE3;background:#fff;color:#303C46;border-radius:12px;padding:8px 16px;cursor:pointer;box-shadow:0 1px 4px rgba(48,60,70,.05)}
+#tabGroups button .n{font-weight:600;color:#7A8594;font-size:12px;margin-left:6px}
+#tabGroups button[aria-pressed=true]{background:#E8F2FB;border-color:#8CC0E8;color:#005A9E}
+#tabs .tab.tg-hid{display:none!important}
+#tabs.tg-on{background:#fff;border:1px solid #ECEDF1;border-radius:12px;padding:8px 10px!important;margin-bottom:10px}
+#tabs.tg-one{display:none!important}
 </style>
 </head>
 <body>
@@ -2404,6 +2451,54 @@ tr.total td.fz,tr.sub td.fz{z-index:3}
 })();
 
 buildStatic();render();
+
+/* [4 พ.ย. 2026] กลุ่มแท็บ (Summary · Device · GIA · iPhone·iPad · Staff) + ตัวกรองเพิ่มเติม */
+try{(function(){
+  const tabsEl=document.getElementById('tabs');
+  /* [4 พ.ย. 2026] แท็บที่ดูบ่อย แยกเป็นปุ่มของตัวเองด้านหน้า (แก้รายชื่อที่ PIN) */
+  const PIN=['device by brand','14 model focus','tecno focus'];
+  const grpOf=b=>{const v=b.dataset.v,t=(b.textContent||'').trim().toLowerCase();
+    if(v==='sum')return 0; const pi=PIN.indexOf(t); if(pi>=0)return 1+pi;
+    const B=1+PIN.length; if(v==='staff')return B+3;
+    if(/iphone|ipad|1[78] pro|duo|sell-through|hourly/.test(t))return B+2;
+    if(/gia|watch|gt7|suplife|acc|airpods/.test(t))return B+1; return B};
+  const tName=k=>{const b=[...tabsEl.querySelectorAll('.tab')].find(x=>x.textContent.trim().toLowerCase()===k);return b?b.textContent.trim():k};
+  const GN=['Summary',...PIN.map(tName),'Device','GIA','iPhone · iPad','Staff'];
+  const gb=document.createElement('div');gb.id='tabGroups';tabsEl.parentNode.insertBefore(gb,tabsEl);
+  const tabsOf=g=>[...tabsEl.querySelectorAll('.tab')].filter(b=>grpOf(b)===g);
+  let cur=-1;
+  const show=g=>{cur=g;const all=[...tabsEl.querySelectorAll('.tab')];all.forEach(b=>b.classList.toggle('tg-hid',grpOf(b)!==g));
+    tabsEl.classList.add('tg-on');tabsEl.classList.toggle('tg-one',tabsOf(g).length<2);
+    gb.querySelectorAll('button').forEach((b,i)=>b.setAttribute('aria-pressed',String(i===g)))};
+  GN.forEach((l,g)=>{const n=tabsOf(g).length;if(!n)return;const b=document.createElement('button');b.type='button';
+    b.innerHTML=l+(n>1?'<span class="n">'+n+'</span>':'');b.dataset.g=g;
+    b.onclick=()=>{const sel=tabsEl.querySelector('.tab[aria-selected=true]');show(g);if(!sel||grpOf(sel)!==g)tabsOf(g)[0].click()};
+    gb.appendChild(b)});
+  gb.querySelectorAll('button').forEach(b=>{b.setAttribute('aria-pressed','false')});
+  const sync=()=>{const sel=tabsEl.querySelector('.tab[aria-selected=true]');const g=sel?grpOf(sel):0;if(g!==cur)show(g);
+    else gb.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.g===g)))};
+  new MutationObserver(sync).observe(tabsEl,{subtree:true,attributes:true,attributeFilter:['aria-selected']});
+  sync();
+  // ---- ตัวกรองเพิ่มเติม ----
+  const bar=document.querySelector('.bar-in');if(!bar)return;
+  const KEEP=['ช่วงเวลา','วันที่','area (เลือกได้หลายรายการ)','มุมมอง','หน่วย (แท็บ focus/acc)','โหมด','stock','มุมมองเป้า'];
+  const hid=[...bar.children].filter(e=>{const lb=((e.querySelector('label,.lb')||{}).textContent||'').trim().toLowerCase();return lb&&!KEEP.includes(lb)});
+  hid.forEach(e=>e.classList.add('fx-more'));
+  const endEl=[...bar.children].find(e=>e.classList.contains('bar-end'))||null;
+  const w=document.createElement('div');w.className='fld';
+  w.innerHTML='<span class="lb">&nbsp;</span><button id="fxMoreBtn" type="button" aria-expanded="false">⚙ ตัวกรองเพิ่มเติม ('+hid.length+')<span class="dot" title="มีตัวกรองที่ซ่อนอยู่ถูกตั้งค่า"></span> ▾</button>';
+  bar.insertBefore(w,endEl);const mb=w.querySelector('button');
+  mb.onclick=()=>{const o=bar.classList.toggle('fx-open');mb.setAttribute('aria-expanded',String(o))};
+  const changed=()=>hid.some(e=>{
+    if([...e.querySelectorAll('.chip[aria-pressed]')].length>1&&[...e.querySelectorAll('.chip[aria-pressed]')].some(c=>c.getAttribute('aria-pressed')!=='true'))return true;
+    const seg=e.querySelector('.seg');if(seg){const bs=[...seg.querySelectorAll('button')];if(bs.length&&bs[0].getAttribute('aria-pressed')!=='true'&&bs.some(b=>b.getAttribute('aria-pressed')==='true'))return true}
+    if([...e.querySelectorAll('select')].some(s=>s.selectedIndex>0))return true;
+    if([...e.querySelectorAll('input[type=text],input:not([type])')].some(i=>i.value.trim()))return true;
+    return false});
+  const upd=()=>setTimeout(()=>mb.classList.toggle('on',changed()),0);
+  ['click','input','change'].forEach(ev=>bar.addEventListener(ev,upd));upd();
+})()}catch(err){console.warn('tabGroups',err)}
+
 })();
 </script>
 </body>
