@@ -329,6 +329,8 @@ table tr.total .up,table tr.total .stl[data-st=in],table tr.total .stl2[data-st=
 table tr.total .dn{color:#FFD6D1!important}
 /* [4 พ.ย. 2026] ป้ายรอง "WTD/MTD" ในหัวตาราง: ขนาดอ่านง่าย ไม่จาง */
 thead th .h2l{display:block;font-size:11px!important;font-weight:700!important;opacity:1!important;color:#DDEBFA!important;line-height:1.25;margin-top:1px;letter-spacing:.3px}
+/* [5 พ.ย. 2026] คอลัมน์เทียบช่วงก่อน (Last Week WTD / %WoW): เอา filter brightness ออก ให้สีและเส้นขอบเท่ากับคอลัมน์อื่น */
+thead th.cmp{filter:none!important}
 thead th{line-height:1.25}
 /* [4 พ.ย. 2026] คอลัมน์ตรึง: ใช้เส้นขอบแบบ separate (เส้นเป็นของแต่ละช่อง) กันตัวอักษรที่เลื่อนผ่านโผล่ตามรอยเส้น/ช่องว่าง */
 #tbl{border-collapse:separate!important;border-spacing:0!important;border-left:1px solid var(--grid)}
@@ -2498,8 +2500,10 @@ try{(function(){
   let cur=-1;
   const show=g=>{cur=g;const all=[...tabsEl.querySelectorAll('.tab')];all.forEach(b=>b.classList.toggle('tg-hid',grpOf(b)!==g));
     tabsEl.classList.add('tg-on');tabsEl.classList.toggle('tg-one',tabsOf(g).length<2);
-    gb.querySelectorAll('button').forEach((b,i)=>b.setAttribute('aria-pressed',String(i===g)))};
-  GN.forEach((l,g)=>{const n=tabsOf(g).length;if(!n)return;const b=document.createElement('button');b.type='button';
+    gb.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.g===g)))};
+  /* [5 พ.ย. 2026] ลำดับปุ่ม: Summary · Device · Device by Brand · iPhone·iPad · 14 Model Focus · Tecno Focus · GIA · Staff */
+  const B0=1+PIN.length,ORD=[0,B0,1,B0+2,2,3,B0+1,B0+3].filter(g=>g<GN.length);GN.forEach((x,g)=>{if(!ORD.includes(g))ORD.push(g)});
+  ORD.forEach(g=>{const l=GN[g];const n=tabsOf(g).length;if(!n)return;const b=document.createElement('button');b.type='button';
     b.innerHTML=l+(n>1?'<span class="n">'+n+'</span>':'');b.dataset.g=g;
     b.onclick=()=>{const sel=tabsEl.querySelector('.tab[aria-selected=true]');show(g);if(!sel||grpOf(sel)!==g)tabsOf(g)[0].click()};
     gb.appendChild(b)});
