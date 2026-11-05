@@ -2306,7 +2306,7 @@ tr.total td.fz,tr.sub td.fz{z-index:3}
   document.head.appendChild(css);
   const tp=$('trendPanel');
   const wp=document.createElement('section');wp.className='panel';wp.id='wkPanel';tp.after(wp);
-  const sb=document.createElement('div');sb.id='sumBox';sb.hidden=true;wp.after(sb);
+  const sb=document.createElement('div');sb.id='sumBox';sb.hidden=true;wp.after(sb); /* [5 พ.ย. 2026] วางกราฟยอดรายวัน + แนวโน้มรายสัปดาห์คู่กันในแถวเดียว (แท็บที่มีกราฟเดียว/จอแคบ = เต็มแถวเหมือนเดิม) */{const cr=document.createElement('div');cr.id='chartRow';tp.before(cr);cr.append(tp,wp);const cs=document.createElement('style');cs.textContent='#chartRow{display:grid;grid-template-columns:repeat(auto-fit,minmax(560px,1fr));gap:12px;align-items:stretch;margin-bottom:10px}#chartRow>.panel{margin-bottom:0}#chartRow>[hidden]{display:none!important}#chartRow:has(#trendPanel:not([hidden])) #wkPanel .wkgrid{grid-template-columns:1fr}';document.head.appendChild(cs)}
 
   // ---------- ตัวช่วยคำนวณ ----------
   const UNIT=()=>S.unit==='n'?'n':'q', UL=u=>u==='n'?'NET':'QTY';
