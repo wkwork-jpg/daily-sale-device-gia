@@ -2926,8 +2926,25 @@ body.v2noside #v2ov .gr:not([style]){grid-template-columns:minmax(0,1fr)!importa
     setTimeout(()=>{const c=node.querySelector('.shotcap2 b');if(c)c.textContent=b.dataset.cap.replace(/\s*📷\s*/g,'')},0)},true);
   document.addEventListener('click',e=>{if(V2.pop&&!e.target.closest('.pk')){V2.pop=false;if(V2.page==='pr')drawPr()}});
   document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('#tabGroups button,#tabs .tab'))V2.page='old'},true);
-  const _rd=render;render=function(){_rd.apply(this,arguments);
-    try{const emb=V2.page==='st'||V2.page==='tl';document.body.classList.toggle('v2on',V2.page!=='old'&&!emb);document.body.classList.toggle('v2emb',emb);drawNav();if(emb)drawEmb();else if(V2.page==='ov')drawOv();else if(V2.page==='sh')drawSh();else if(V2.page==='pr')drawPr();else if(V2.page==='br')drawBr();else ov.innerHTML=''}
+
+  /* ---------- [16 พ.ย. 2026] ตัวเลือก "เทียบ" บนแถบตัวกรอง: ไม่เทียบ / DoD / WoW / MoM (ใช้ได้ทุกหน้า รวมหน้าเดิม) ----------
+     DoD = ช่วงเดียวกันเลื่อนไป 1 วัน · WoW = เลื่อน 7 วัน · MoM = ช่วงเดียวกันของเดือนก่อน · ยังไม่เลือก = ตามช่วงเวลาแบบเดิม */
+  S.cmpMode=null;
+  const _range=range;
+  range=function(){const R=_range.apply(this,arguments);const m=S.cmpMode;if(!m||m==='none')return R;
+    const back1m=d=>{const x=new Date(toUTC(d)),want=x.getUTCDate(),pm=new Date(Date.UTC(x.getUTCFullYear(),x.getUTCMonth(),0));return fromUTC(Date.UTC(pm.getUTCFullYear(),pm.getUTCMonth(),Math.min(want,pm.getUTCDate())))};
+    let pa,pb;if(m==='dod'){pa=addD(R.a,-1);pb=addD(R.effB,-1)}else if(m==='wow'){pa=addD(R.a,-7);pb=addD(R.effB,-7)}else{pa=back1m(R.a);pb=back1m(R.effB)}
+    let pOk=true;for(let t=toUTC(pa);t<=toUTC(pb);t+=DAY){if(dIdx[fromUTC(t)]===undefined){pOk=false;break}}
+    const L={dod:['วันก่อน','%DoD','Yesterday','วันก่อนหน้า (เลื่อน 1 วัน)'],wow:['สัปดาห์ก่อน','%WoW','Last Week','สัปดาห์ก่อน (วันเดียวกัน)'],mom:['เดือนก่อน','%MoM','Last Month','เดือนก่อน (วันเดียวกัน)']}[m];
+    return Object.assign(R,{pa,pb,pOk,pshort:L[0],pchg:L[1],pcol:L[2],plab:L[3]})};
+  const effCmp=()=>{if(!S.cmp)return 'none';if(S.cmpMode)return S.cmpMode;return {day:'dod',week:'wow',mtd:'mom',month:'mom'}[S.period]||''};
+  function drawCmpSeg(){const bar=document.querySelector('.bar-in');if(!bar)return;let f=$('fldCmp2');
+    if(!f){const u=$('segUnit');if(!u)return;f=document.createElement('div');f.className='fld';f.id='fldCmp2';u.closest('.fld').after(f)}
+    const e=effCmp();f.innerHTML=`<span class="lb">เทียบ</span><div class="seg">${[['none','ไม่เทียบ'],['dod','DoD'],['wow','WoW'],['mom','MoM']].map(([k,t])=>`<button type="button" data-cm="${k}" aria-pressed="${e===k}">${t}</button>`).join('')}</div>`;
+    f.querySelectorAll('[data-cm]').forEach(b=>b.onclick=()=>{S.cmpMode=b.dataset.cm;S.cmp=S.cmpMode!=='none';S.sort=null;render()})}
+  document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('#btnCmp'))S.cmpMode=null},true);
+  const _rd=render;render=function(){if(S.cmpMode)S.cmp=S.cmpMode!=='none';_rd.apply(this,arguments);
+    try{const emb=V2.page==='st'||V2.page==='tl';document.body.classList.toggle('v2on',V2.page!=='old'&&!emb);document.body.classList.toggle('v2emb',emb);drawNav();setTimeout(drawCmpSeg,0);if(emb)drawEmb();else if(V2.page==='ov')drawOv();else if(V2.page==='sh')drawSh();else if(V2.page==='pr')drawPr();else if(V2.page==='br')drawBr();else ov.innerHTML=''}
     catch(e){ov.innerHTML='<div class="pn" style="color:#B42318">สร้างหน้า Overview ไม่ได้: '+E(e.message)+'</div>';console.error(e)}};
 })()}catch(e){console.error('V2',e)}
 
