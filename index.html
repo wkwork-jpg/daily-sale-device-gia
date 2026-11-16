@@ -368,6 +368,147 @@ svg rect[fill="#5B88B2"]{fill:#2F8FD3!important}
 
 /* [6 พ.ย. 2026] ยอดขาย 0 (ACTUAL QTY/NET) = พื้นแดงอ่อน · มียอด = ตัวเขียวไม่มีพื้น · ไม่ใช้กับ GAP และแถว TOTAL */
 tbody tr:not(.total) td.cf-qz{background:#FCE4E2!important;color:#B3261E!important;font-weight:700}
+
+/* ===== [13 พ.ย. 2026] หน้าตาใหม่ v2 — รอบ 1: เต็มจอ + แถบเมนูบน + ตัวกรองบรรทัดกระชับ + การ์ดตัวเลขกระชับ ===== */
+.wrap{max-width:none!important;padding:8px 14px 24px!important}
+header.top{display:flex!important;align-items:center!important;gap:14px!important;padding:6px 14px!important;margin-bottom:6px!important;border-radius:8px!important;min-height:0!important;flex-wrap:nowrap!important}
+header.top h1{font-size:16px!important;white-space:nowrap;margin:0!important}
+header.top .sub{display:none!important}
+header.top>div:first-child{flex-shrink:0}
+header.top #tabGroups{flex:1;min-width:0;margin:0!important;padding:0!important;display:flex!important;gap:4px!important;flex-wrap:nowrap!important;overflow-x:auto;scrollbar-width:thin}
+header.top #tabGroups button{padding:5px 12px!important;font-size:13px!important;border-radius:8px!important;white-space:nowrap;box-shadow:none!important}
+header.top .upd{font-size:11px!important;line-height:1.35!important;white-space:nowrap;flex-shrink:0;text-align:right}
+.bar{margin-bottom:4px!important}
+.bar .bar-in{padding:6px 12px!important;gap:6px 12px!important;align-items:center!important}
+.bar .fld{flex-direction:row!important;align-items:center!important;gap:5px!important}
+.bar .fld .lb,.bar .fld>label{font-size:10.5px!important;margin:0!important;white-space:nowrap}
+.bar .seg button{padding:3px 9px!important;font-size:12px!important}
+.bar select,.bar input[type=text],.bar .msbtn{padding:3px 8px!important;font-size:12px!important;min-height:0!important;height:auto!important}
+.bar .chip{padding:3px 10px!important;font-size:12px!important}
+#btnXls{background:#E8F2FB!important;color:#005A9E!important;border-color:#8CC0E8!important}
+#fxMoreBtn{padding:4px 10px!important}
+.rangelbl{font-size:11px!important;margin:2px 2px 6px!important;padding:0!important}
+#tabs.tabs{margin:0 0 6px!important;padding:5px 8px!important;min-height:0!important;border-radius:10px!important}
+#tabs.tabs .tab{padding:4px 12px!important;font-size:12.5px!important}
+.kpis{gap:8px!important;margin-bottom:8px!important;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))!important}
+.kpis .kpi{padding:6px 12px 7px 14px!important;border-radius:8px!important;min-height:0!important}
+.kpis .kpi .k{font-size:11px!important}
+.kpis .kpi .v{font-size:20px!important;line-height:1.2!important;margin:1px 0!important}
+.kpis .kpi .s{font-size:11px!important}
+/* ===== [13 พ.ย. 2026] หน้าตาใหม่ v2 — รอบ 2: ตาราง Area + กล่องอันดับด้านขวา · กราฟย้ายไปใต้ตาราง ===== */
+#v2grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:10px;align-items:start}
+#v2grid.noside{grid-template-columns:minmax(0,1fr)}
+#v2grid.noside #v2side{display:none}
+#v2grid>#tblBoth{min-width:0}
+#v2grid #tblBoth .tblhead{margin-top:0!important}
+#v2side{position:sticky;top:8px;background:#fff;border:1px solid #E3E8EF;border-radius:8px;padding:10px 12px;box-shadow:0 1px 3px rgba(20,40,70,.05)}
+#v2side h3{margin:0 0 8px;font-size:13.5px;color:#1B4F84;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+#v2side h3 .h{font-size:10.5px;color:#7A8594;font-weight:400;width:100%}
+#v2side .rseg{display:inline-flex;border:1px solid #CDD8E5;border-radius:7px;overflow:hidden}
+#v2side .rseg button{font:inherit;font-size:11.5px;border:0;border-right:1px solid #E3E9F1;background:#fff;padding:2px 9px;cursor:pointer;color:#3D4C5E}
+#v2side .rseg button:last-child{border-right:0}
+#v2side .rseg button.on{background:#E8F2FB;color:#005A9E;font-weight:700}
+#v2side .rr{display:grid;grid-template-columns:18px minmax(0,1fr) 54px;gap:2px 6px;align-items:center;font-size:12px;padding:3px 0;border-bottom:1px dashed #EEF1F5;cursor:pointer}
+#v2side .rr:hover{background:#F6F9FC}
+#v2side .rr .i{color:#8A93A0;font-size:11px}
+#v2side .rr .n{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#1F3B57}
+#v2side .rr .p{text-align:right;font-weight:700;border-radius:4px;padding:0 4px;font-variant-numeric:tabular-nums}
+#v2side .rr .t{grid-column:2/4;height:6px;background:#EEF2F7;border-radius:3px;position:relative}
+#v2side .rr .t i{position:absolute;left:0;top:0;bottom:0;border-radius:3px;background:#4A86C5}
+#v2side .rr .t u{position:absolute;top:-3px;bottom:-3px;width:2px;background:#1B4F84}
+#v2side .ft{font-size:10.5px;color:#7A8594;margin-top:6px}
+#chartRow{margin-top:12px}
+@media (max-width:1350px){#v2grid{grid-template-columns:minmax(0,1fr) 280px}}
+@media (max-width:1050px){#v2grid{grid-template-columns:minmax(0,1fr)}#v2side{position:static}}
+.kpis .kpi.v2x .v{color:#1B4F84}
+.kpis{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))!important}
+.kpis .kpi .k,.kpis .kpi .s{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (max-width:1500px){header.top #tabGroups button{padding:4px 9px!important;font-size:12px!important}header.top .upd{font-size:10px!important}header.top h1{font-size:14.5px!important}}
+@media (max-height:950px){#tbl tbody td{padding-top:3px!important;padding-bottom:3px!important}.kpis .kpi .v{font-size:18px!important}}
+/* ===== [13 พ.ย. 2026] หน้าตาใหม่ v2 — รอบ 2.1: หน้าตาให้ตรงไฟล์ตัวอย่างแบบ 8 (แถบขาวเรียบ · แถบตัวกรองแบน · การ์ดเรียบ) ===== */
+body{background:#F6F7FA!important}
+body::before,body::after{display:none!important}
+.wrap{padding:0 0 24px!important}
+header.top{background:#fff!important;border:0!important;border-bottom:1px solid #D5E0EC!important;border-radius:0!important;box-shadow:none!important;margin:0!important;padding:0 14px!important;height:46px;position:relative}
+header.top::before,header.top::after{display:none!important}
+header.top h1{color:#1B4F84!important}
+header.top #tabGroups button{background:transparent!important;border:0!important;color:#3D4C5E!important;font-weight:600!important;border-radius:8px!important}
+header.top #tabGroups button:hover{background:#F2F6FB!important}
+header.top #tabGroups button[aria-pressed=true],header.top #tabGroups button.on,header.top #tabGroups button[aria-selected=true]{background:#E8F0F8!important;color:#1B4F84!important;font-weight:700!important;box-shadow:inset 0 -2px 0 #1B4F84!important}
+.bar{background:#FBFCFE!important;border:0!important;border-bottom:1px solid #D5E0EC!important;border-radius:0!important;box-shadow:none!important;margin:0 0 6px!important;padding:0 2px!important}
+.bar .bar-in{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important}
+.rangelbl{margin:0 14px 6px!important}
+#tabs.tabs{margin:0 14px 8px!important;background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important}
+#tabs.tabs .tab{border-radius:999px!important}
+.kpis{margin:0 14px 8px!important}
+.kpis .kpi{background:#fff!important;border:1px solid #E3E8EF!important;box-shadow:none!important;position:relative;overflow:hidden}
+.kpis .kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#007AD0,#6A8DEB)!important;border:0!important}
+.kpis .kpi .k{color:#6B7684!important;font-weight:600!important}
+.kpis .kpi .v{color:#1B4F84!important}
+#v2grid,#chartRow,#sumBox,#velTop,#velBottom,#brandSum,#modelPanel,#lineDev,#dataNote,#pkBar{margin-left:14px!important;margin-right:14px!important}
+#v2grid #tblBoth{background:#fff;border:1px solid #E3E8EF;border-radius:8px;padding:8px 10px}
+#v2grid #tblBoth .scroll{box-shadow:none!important}
+.panel{box-shadow:none!important;border:1px solid #E3E8EF!important;border-radius:8px!important}
+#v2side{box-shadow:none!important}
+/* ===== [13 พ.ย. 2026] หน้าตาใหม่ v2 — รอบ 3: ใช้สไตล์เดียวกันทุกแท็บ (กล่องขาวเรียบ · หัวข้อกรมท่า · แถบซ้ายไล่สี) ===== */
+.panel,.vcard,.vmc,.vk .c,#sumBox .scard,.note{background:#fff!important;border:1px solid #E3E8EF!important;border-radius:8px!important;box-shadow:none!important}
+.panel h2,.vcard h3,.tblhead .t,.vmc .nm,#sumBox h2{color:#1B4F84!important}
+.vk .c,.vmc,#sumBox .scard{position:relative;overflow:hidden;border-top:1px solid #E3E8EF!important;border-left:1px solid #E3E8EF!important;padding-left:16px!important}
+.vk .c::before,.vmc::before,#sumBox .scard::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#007AD0,#6A8DEB)}
+.vk .k,#sumBox .scard .k{color:#6B7684!important;font-weight:600!important}
+.vk .v,#sumBox .scard .v{color:#1B4F84}
+#sumBox .scard:hover{border-color:#8CC0E8!important;box-shadow:0 2px 8px rgba(27,79,132,.12)!important}
+.vhead{background:#fff!important;color:#1B4F84!important;border:1px solid #E3E8EF;border-radius:8px!important;box-shadow:none!important;position:relative;overflow:hidden;padding:12px 16px 12px 18px!important}
+.vhead::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#007AD0,#6A8DEB)}
+.vt{color:#1B4F84!important;font-size:17px!important}.vt span{color:#007AD0!important}
+.vs{color:#6B7684!important}
+.vctl .seg{border-color:#CDD8E5!important;background:#fff!important}
+.vctl .seg button{color:#3D4C5E!important}
+.vctl .seg button[aria-pressed=true]{background:#E8F2FB!important;color:#005A9E!important;font-weight:700}
+.vchips .chip{background:#fff!important;border-color:#CDD8E5!important;color:#3D4C5E!important}
+.vchips .chip[aria-pressed=true]{background:#E8F2FB!important;border-color:#8CC0E8!important;color:#005A9E!important;font-weight:700}
+.vh1{background:#F4F8FC!important}.vh2{background:#E1EDF8!important}.vh3{background:#C3DBF0!important}.vh4{background:#9CC3E6!important;color:#123A63!important}
+.vp-n{background:#FFF1BA;color:#6B5420}
+textarea.vline{background:#fff!important;border-color:#CDD8E5!important}
+.vel{margin:0 14px 10px!important}
+.vel .vk,.vel .vgrid,.vel .vmg{margin-bottom:10px}
+#sumBox{margin-left:14px!important;margin-right:14px!important}
+#sumBox h2 .shint,.panel h2 .shint{color:#6B7684!important}
+.ipick .chip,.tblhead .chip,.panel .chip{background:#fff;border-color:#CDD8E5;color:#3D4C5E}
+.ipick .chip[aria-pressed=true],.tblhead .chip[aria-pressed=true],.panel .chip[aria-pressed=true]{background:#E8F2FB;border-color:#8CC0E8;color:#005A9E;font-weight:700}
+/* รอบ 3.1: กล่องอันดับรายสาขาใต้อันดับ Area */
+#v2grid>#tblBoth{grid-row:1/span 2}
+#v2grid>#v2side{grid-column:2;grid-row:1;position:static!important}
+#v2grid>#v2side2{grid-column:2;grid-row:2}
+#v2side2{background:#fff;border:1px solid #E3E8EF;border-radius:8px;padding:10px 12px}
+#v2side2[hidden]{display:none!important}
+#v2side2 h3{margin:0 0 8px;font-size:13.5px;color:#1B4F84;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+#v2side2 h3 .h{font-size:10.5px;color:#7A8594;font-weight:400;width:100%}
+#v2side2 .rseg{display:inline-flex;border:1px solid #CDD8E5;border-radius:7px;overflow:hidden}
+#v2side2 .rseg button{font:inherit;font-size:11.5px;border:0;border-right:1px solid #E3E9F1;background:#fff;padding:2px 9px;cursor:pointer;color:#3D4C5E}
+#v2side2 .rseg button:last-child{border-right:0}
+#v2side2 .rseg button.on{background:#E8F2FB;color:#005A9E;font-weight:700}
+#v2side2 .rr{display:grid;grid-template-columns:24px minmax(0,1fr) 54px;gap:2px 6px;align-items:center;font-size:12px;padding:3px 0;border-bottom:1px dashed #EEF1F5;cursor:pointer}
+#v2side2 .rr:hover{background:#F6F9FC}
+#v2side2 .rr .i{color:#8A93A0;font-size:11px}
+#v2side2 .rr .n{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#1F3B57}
+#v2side2 .rr .p{text-align:right;font-weight:700;border-radius:4px;padding:0 4px;font-variant-numeric:tabular-nums}
+#v2side2 .rr .t{grid-column:2/4;height:6px;background:#EEF2F7;border-radius:3px;position:relative}
+#v2side2 .rr .t i{position:absolute;left:0;top:0;bottom:0;border-radius:3px;background:#4A86C5}
+#v2side2 .rr .t u{position:absolute;top:-3px;bottom:-3px;width:2px;background:#1B4F84}
+#v2side2 .ft{font-size:10.5px;color:#7A8594;margin-top:6px}
+@media (max-width:1050px){#v2grid>#tblBoth,#v2grid>#v2side,#v2grid>#v2side2{grid-column:1;grid-row:auto}}
+#v2grid.noside>#v2side2{display:none!important}
+/* รอบ 3.2: แท็บกลุ่ม/แท็บย่อยให้เด่นขึ้น (โทนอ่อน ตัวอักษรเข้ม) */
+header.top #tabGroups button{font-size:14px!important;padding:6px 14px!important;color:#5B6878!important;font-weight:600!important;letter-spacing:.1px}
+header.top #tabGroups button:hover{background:#EEF4FA!important;color:#1B4F84!important}
+header.top #tabGroups button[aria-pressed=true],header.top #tabGroups button.on,header.top #tabGroups button[aria-selected=true]{background:#D9EAF8!important;color:#0F3C6B!important;font-weight:800!important;box-shadow:inset 0 -3px 0 #1B4F84!important;border-radius:8px 8px 0 0!important}
+#tabs.tabs .tab{background:#fff!important;border:1px solid #CDD8E5!important;color:#4A5868!important;font-size:13px!important;padding:5px 14px!important;font-weight:600!important}
+#tabs.tabs .tab:hover{background:#F2F7FC!important;border-color:#8CC0E8!important}
+#tabs.tabs .tab[aria-selected=true],#tabs.tabs .tab.on,#tabs.tabs .tab[aria-pressed=true]{background:#D9EAF8!important;border:1.5px solid #1B4F84!important;color:#0F3C6B!important;font-weight:800!important;box-shadow:0 1px 4px rgba(27,79,132,.18)!important}
+/* รอบ 3.3: แถบสีใต้ชื่อหน้า (Tracking Device & GIA) */
+header.top h1{position:relative!important}
+header.top h1::after{content:"";position:absolute;left:0;right:0;bottom:-13px;height:3px;border-radius:2px 2px 0 0;background:linear-gradient(90deg,#1B4F84,#007AD0 60%,#6A8DEB)}
 </style>
 </head>
 <body>
@@ -2488,6 +2629,308 @@ tr.total td.fz,tr.sub td.fz{z-index:3}
   };
 })();
 
+
+/* ===== [16 พ.ย. 2026] โครงใหม่ (แบบง่าย) — รอบ 1: หน้า Overview ใช้ข้อมูลจริง · หน้าอื่นใช้ของเดิมไปก่อน ===== */
+try{(function(){
+  const V2={shop:null,sq:'',tl:'vel',bsel:null,bopen:new Set(),page:'ov',all:false,rr:false,open:new Set(),pop:false,q:''};window.__V2=V2;
+  const css=document.createElement('style');css.textContent=`
+#v2nav{display:flex;align-items:center;gap:6px;margin:0 14px 8px;flex-wrap:wrap}
+#v2nav .nb{border:1px solid #CDD8E5;background:#fff;color:#4A5868;border-radius:8px;padding:6px 16px;font:inherit;font-size:13.5px;font-weight:700;cursor:pointer}
+#v2nav .nb:hover{background:#F2F7FC;border-color:#8CC0E8}
+#v2nav .nb.on{background:#D9EAF8;border:1.5px solid #1B4F84;color:#0F3C6B}
+#v2nav .sp{margin-left:auto;font-size:11.5px;color:#6B7684;text-align:right;line-height:1.5}
+#v2nav .sp b{color:#1F2D3D}#v2nav .ul{display:inline-block;min-width:40px;text-align:center;font-size:10.5px;font-weight:700;color:#1B4F84;background:#E8F0F8;border:1px solid #CDD8E5;border-radius:4px;padding:0 5px;margin-right:4px}
+body.v2emb #tabs,body.v2emb header.top #tabGroups,body.v2on header.top #tabGroups{visibility:hidden}
+body.v2on .wrap>*:not(header):not(.bar):not(#v2nav):not(#v2ov):not(#rangeLbl):not(#pwGate){display:none!important}
+#v2ov{margin:0 14px 24px}
+body.v2emb #v2ov{margin-bottom:8px}
+#v2ov .kp{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:12px}
+#v2ov .kc{background:#fff;border:1px solid #E3E8EF;border-radius:8px;padding:9px 12px 10px 15px;position:relative;overflow:hidden;cursor:pointer}
+#v2ov .kc:hover{border-color:#8CC0E8}
+#v2ov .kc::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#007AD0,#6A8DEB)}
+#v2ov .kc .k{font-size:11px;color:#6B7684;font-weight:700}#v2ov .kc .v{font-size:21px;font-weight:800;color:#1B4F84;margin:2px 0}
+#v2ov .kc .v small{font-size:13px;font-weight:600;color:#6B7684}#v2ov .kc .s{font-size:11.5px;color:#6B7684;line-height:1.6}
+#v2ov .kc .tg{padding:0 5px;border-radius:4px;font-weight:700}
+#v2ov .pb{height:6px;background:#EEF2F7;border-radius:3px;position:relative;margin-top:6px}#v2ov .pb i{position:absolute;left:0;top:0;bottom:0;border-radius:3px;background:#4A86C5}#v2ov .pb u{position:absolute;top:-3px;bottom:-3px;width:2px;background:#1B4F84}
+#v2ov .gr{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:12px;align-items:start}
+#v2ov .pn{background:#fff;border:1px solid #E3E8EF;border-radius:8px;padding:10px 12px}
+#v2ov .ph{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+#v2ov .ph .t{font-size:14px;font-weight:800;color:#1B4F84}#v2ov .ph .h{font-size:11.5px;color:#6B7684}#v2ov .ph .r{margin-left:auto;display:flex;gap:6px;align-items:center}
+#v2ov .ch{border:1px solid #CDD8E5;background:#fff;border-radius:999px;padding:3px 11px;font:inherit;font-size:12px;color:#4A5868;cursor:pointer}
+#v2ov .ch.on{background:#D9EAF8;border-color:#1B4F84;color:#0F3C6B;font-weight:700}
+#v2ov .sc{overflow-x:auto}
+#v2ov table{border-collapse:collapse;width:100%;font-size:12.5px}
+#v2ov th,#v2ov td{border:1px solid #E3E6EC;padding:5px 8px;white-space:nowrap;text-align:center;font-variant-numeric:tabular-nums}
+#v2ov thead th{background:#1B4F84;color:#fff;border-color:#3E6A98;font-weight:700}
+#v2ov td.l{font-weight:700;color:#1F3B57}
+#v2ov tr.tt td{background:#1B4F84!important;color:#fff;font-weight:700;border-color:#3E6A98}
+#v2ov td.c{cursor:pointer}#v2ov td.c:hover{outline:2px solid #007AD0;outline-offset:-2px}
+#v2ov .mi{display:block;font-size:10.5px;font-weight:700;line-height:1.2}#v2ov .up{color:#1D6FB8}#v2ov .dn{color:#B42318}#v2ov tr.tt .mi{color:#fff}
+#v2ov .td{display:grid;gap:6px}#v2ov .td div{border:1px solid #E3E8EF;border-left:3px solid #D9735B;border-radius:6px;padding:6px 9px;cursor:pointer;font-size:12.5px}
+#v2ov .td div:hover{background:#F6F9FC}#v2ov .td b{color:#1B4F84}#v2ov .td span{color:#6B7684;font-size:11.5px;display:block}
+#v2ov .nt{font-size:11.5px;color:#6B7684;margin-top:8px}
+#v2ov .pk{position:relative;display:inline-block}#v2ov .pk>button{font:inherit;font-size:15px;font-weight:800;color:#1B4F84;padding:6px 14px;min-width:280px;text-align:left;border:1.5px solid #1B4F84;background:#F4F9FE;border-radius:7px;cursor:pointer}
+#v2ov .pop{position:absolute;top:calc(100% + 4px);left:0;background:#fff;border:1px solid #C9D6E4;border-radius:8px;box-shadow:0 8px 24px rgba(20,40,70,.16);padding:8px;z-index:50;width:580px;max-height:460px;overflow:auto}
+#v2ov .pop input{width:100%;padding:5px 8px;border:1px solid #CDD8E5;border-radius:6px;font:inherit;margin-bottom:6px}
+#v2ov .pg{display:grid;grid-template-columns:1fr 1fr;gap:2px 14px}#v2ov .pg h4{grid-column:1/-1;margin:8px 0 2px;font-size:11.5px;color:#6B7684;border-bottom:1px solid #E3E8EF;padding-bottom:2px}
+#v2ov .pg a{padding:5px 8px;border-radius:6px;cursor:pointer;font-size:13px}#v2ov .pg a:hover{background:#EEF4FA}#v2ov .pg a.on{background:#D9EAF8;font-weight:700;color:#0F3C6B}
+#v2ov .qk{display:flex;gap:6px;align-items:center;flex-wrap:wrap}#v2ov .qk .h,#v2ov .ip .h{font-size:11.5px;color:#6B7684}
+#v2ov .ip{display:flex;gap:5px;flex-wrap:wrap;align-items:center;margin-bottom:8px}
+#v2ov table.pt td.num{text-align:right}#v2ov table.pt td.sb{color:#6B7684;font-size:11.5px}
+#v2ov table.pt tr.ar td.nm{cursor:pointer;text-align:left}#v2ov table.pt tr.ar td.nm:hover{text-decoration:underline}
+#v2ov table.pt tr.sh td{background:#FAFBFD;font-size:12px}#v2ov table.pt tr.sh td.nm2{text-align:left;padding-left:24px;font-weight:600;color:#1F3B57;max-width:280px;overflow:hidden;text-overflow:ellipsis}
+#v2ov table.pt thead th{font-size:12px}
+#v2ov .rr{display:grid;grid-template-columns:22px minmax(0,1fr) 62px;gap:2px 6px;align-items:center;font-size:12px;padding:3px 0;border-bottom:1px dashed #EEF1F5}
+#v2ov .rr .i{color:#8A93A0;font-size:11px}#v2ov .rr .n{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#1F3B57}#v2ov .rr .p{text-align:right;font-weight:700;border-radius:4px;padding:0 4px}#v2ov .rr .pb{grid-column:2/4;margin-top:0}
+#v2ov .bars{display:flex;align-items:flex-end;gap:3px;height:100px;margin:6px 0 18px}#v2ov .bars div{flex:1;background:#7FA8D6;border-radius:3px 3px 0 0;position:relative;min-height:1px}#v2ov .bars div span{position:absolute;bottom:-16px;left:0;right:0;text-align:center;font-size:9.5px;color:#6B7684}
+#v2ov .shb{display:inline-block;width:70px;height:7px;background:#EEF2F7;border-radius:3px;position:relative;margin-right:6px;vertical-align:middle}#v2ov .shb i{position:absolute;left:0;top:0;bottom:0;background:#7FA8D6;border-radius:3px}
+#v2ov tr.bs td{background:#EAF3FC!important}#v2ov tr[data-b] td.nm{cursor:pointer}
+#v2ov .pn:hover .pshot{opacity:1}#v2ov .ph .pshot{margin-left:2px}
+.pshooting .sc{max-height:none!important;overflow:visible!important}.pshooting #v2ov .ch,.pshooting .pk>button+.pop{display:none!important}#v2ov.pshooting{padding:10px;background:#F6F7FA}
+body.v2noside #v2ov .gr:not([style]){grid-template-columns:minmax(0,1fr)!important}body.v2noside #v2ov .gr:not([style])>:nth-child(2){display:none!important}
+.pshooting .sdt{display:none!important}
+@media (max-width:1250px){#v2ov .gr{grid-template-columns:1fr}#v2ov .kp{grid-template-columns:repeat(2,1fr)}}`;
+  document.head.appendChild(css);
+  const nav=document.createElement('div');nav.id='v2nav';
+  const ov=document.createElement('div');ov.id='v2ov';
+  const anchor=$('rangeLbl')||document.querySelector('.bar');anchor.after(nav);nav.after(ov);
+  const E=s=>String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const tgSumL=(mi,tw,u,list)=>{let s=0;for(const sh of list){const x=tgShop(mi,sh.i,tw,u);if(x==null)return null;s+=x}return s};
+  function mainItems(TB){const its=TB.items.filter(it=>!it.a&&MI[it.k]!=null);const sm=its.filter(it=>it.s),rw=its.filter(it=>/\(รวม\)/.test(it.l));return sm.length?sm:rw.length?rw:its}
+  const misOf=t=>{if(t.id==='dev')return [MI.DEV];if(t.id==='gia')return [MI.GIA];if(t.ti==null||!D.tabs[t.ti])return [];const TB=D.tabs[t.ti];
+    /* หน้า Product: ถ้าเลือก "แสดงรายการ" บางตัว → การ์ด / อันดับ / ยอดรายวัน คิดเฉพาะรายการที่เลือก */
+    const pk=V2.page==='pr'&&S.ipick&&S.ipick[t.ti];if(pk&&pk.size){const its=TB.items.filter(it=>pk.has(it.k)&&MI[it.k]!=null);if(its.length)return its.map(it=>MI[it.k])}
+    return mainItems(TB).map(it=>MI[it.k])};
+  const DEF=[/^dev$/,/^iphone focus$/i,/^ipad focus$/i,/^14 model focus$/i,/^tecno focus$/i,/^gia$/,/^airpods/i,/^watch focus$/i,/^prepay$/i];
+  const label=t=>t.id==='dev'?'Device':t.id==='gia'?'GIA':t.title;
+  function prodTabs(){const ok=TABS.filter(t=>(t.id==='dev'||t.id==='gia'||t.ti!=null)&&!/device by brand|สัดส่วน acc/i.test(t.title||'')&&misOf(t).length);
+    if(V2.all)return ok;const out=[];DEF.forEach(rx=>{const t=ok.find(t=>rx.test(t.id)||rx.test(t.title||''));if(t)out.push(t)});return out}
+  function val(t,L,M,P,R,u){const o=u==='n'?1:0;let a=0,p=0,tg=0,tok=true;const ms=misOf(t);
+    for(const sh of L){const v=M.get(sh.i);const w=P&&P.get(sh.i);for(const mi of ms){if(v)a+=v[mi*2+o];if(w)p+=w[mi*2+o]}}
+    tok=false;for(const mi of ms){const x=tgSumL(mi,R.tw,u,L);if(x!=null){tg+=x;tok=true}}
+    const r=tok&&tg>0?a/tg:null;return {a,p,tg:tok?tg:null,r,ch:P&&p?(a-p)/p:null}}
+  function rrK(R){if(R.full&&R.full.el)return R.full.dim/R.full.el;return null}
+  const mini=x=>x.ch==null?'':`<span class="mi ${x.ch>=0?'up':'dn'}">${x.ch>=0?'▲ +':'▼ '}${(x.ch*100).toFixed(1)}%</span>`;
+  function goOld(tabId,area){V2.page='old';S.tab=tabId;S.level='area';if(area){S.a2=new Set([area])}render();
+    setTimeout(()=>{const p=$('shopPanel');if(area&&p&&!p.hidden)p.scrollIntoView({behavior:'smooth',block:'start'});else window.scrollTo({top:0})},60)}
+  function stamp(){const c=velCut(lastD);const d=lastD.split('-');const dt=`${d[2]}/${d[1]}/${d[0]}`;
+    const st=D.stock&&D.stock.asof?D.stock.asof.split(' '):null;const sd=st?st[0].split('-'):null;
+    return `<div><span class="ul">Sales</span> ข้อมูล ณ <b>${dt}${c?' '+c.lbl+' น.':' (ครบวัน)'}</b></div>`+(st?`<div><span class="ul">Stock</span> อัปเดต <b>${sd[2]}/${sd[1]}/${sd[0]} ${st[1]} น.</b></div>`:'')}
+  function drawNav(){nav.innerHTML=`<button type="button" class="nb ${V2.page==='ov'?'on':''}" data-v2p="ov">Overview</button><button type="button" class="nb ${V2.page==='pr'?'on':''}" data-v2p="pr">Product</button><button type="button" class="nb ${V2.page==='br'?'on':''}" data-v2p="br">Brand</button><button type="button" class="nb ${V2.page==='sh'?'on':''}" data-v2p="sh">Shop</button><button type="button" class="nb ${V2.page==='st'?'on':''}" data-v2p="st">Staff</button><button type="button" class="nb ${V2.page==='tl'?'on':''}" data-v2p="tl">Stock · Hourly</button><button type="button" class="nb ${V2.page==='old'?'on':''}" data-v2p="old" style="margin-left:10px;font-weight:600;color:#6B7684">หน้าเดิม</button><span class="sp">${stamp()}</span>`;
+    nav.querySelectorAll('[data-v2p]').forEach(b=>b.onclick=()=>{V2.page=b.dataset.v2p;if(V2.page==='pr'&&!isProd(TABS.find(t=>t.id===S.tab)))S.tab='dev';if(V2.page==='st')S.tab='staff';if(V2.page==='tl')S.tab=V2.tl;if(V2.page!=='st'&&V2.page!=='old'&&S.shop&&V2.stShop){S.shop='';V2.stShop=false}render();window.scrollTo({top:0})})}
+  function drawOv(){
+    const R=range(),list=shopFilter();const US=S.unit==='b'?['q','n']:[S.unit==='n'?'n':'q'];const B=US.length>1;
+    const M=agg(R.a,R.effB,list),P=S.cmp&&R.pOk?agg(R.pa,R.pb,list):null;const k=V2.rr?rrK(R):null;
+    const pts=prodTabs();const ars=areas.filter(a=>list.some(s=>s.area===a));const byA={};ars.forEach(a=>byA[a]=list.filter(s=>s.area===a));
+    const kp2=k?(R.full?k:1):1;/* MTD: เป้าหมายคิดตามวันแล้ว → %RR = RR ÷ เป้าทั้งเดือน = ยอด ÷ เป้า MTD */
+    const shown=x=>x.r==null?null:x.r*kp2;
+    const cls=x=>{const r=shown(x);return r==null?'':(k?achCls(r):achT(r))};
+    const cell=(x,t,a)=>`<td class="c ${cls(x)}" data-t="${t.id}" data-a="${E(a||'')}" title="${E((a||'TOTAL')+' · '+label(t))}: ${f0(x.a)}${x.tg!=null?' / เป้าหมาย '+f0(x.tg):''}">${shown(x)==null?`<span style="color:#6B7684" title="ไม่มีเป้าหมาย — แสดงยอดขาย">${f0(x.a)}</span>`:pct(shown(x))}${mini(x)}</td>`;
+    // KPI
+    const kp=['dev',/^iphone focus$/i,'gia',/^prepay$/i].map(q=>TABS.find(t=>typeof q==='string'?t.id===q:q.test(t.title||''))).filter(Boolean).map(t=>{
+      const xs=US.map(u=>val(t,list,M,P,R,u)),x=xs[0],ul=US[0]==='n'?'NET (บาท)':'QTY';
+      return `<div class="kc" data-t="${t.id}" title="คลิกเพื่อเปิด ${E(label(t))}"><div class="k">${E(label(t))} — ${ul}</div><div class="v">${f0(x.a)}${x.tg!=null?` <small>/ เป้าหมาย ${f0(x.tg)}</small>`:''}</div>
+      <div class="s">${x.r!=null?`<span class="tg ${achT(x.r)}">${pct(x.r)}</span> · GAP ${f0(x.a-x.tg)}`:''}${x.ch!=null?` · ${R.pchg} <span class="${x.ch>=0?'up':'dn'}" style="font-weight:700;color:${x.ch>=0?'#1D6FB8':'#B42318'}">${x.ch>=0?'▲ +':'▼ '}${(x.ch*100).toFixed(1)}%</span>`:''}${k&&x.r!=null?` · RR ${f0(x.a*k)} <span class="tg ${achCls(x.r*kp2)}">%RR ${pct(x.r*kp2)}</span>`:''}</div>
+      ${B?`<div class="s">NET ${f0(xs[1].a)} บาท${xs[1].r!=null?` · <span class="tg ${achT(xs[1].r)}">${pct(xs[1].r)}</span>`:''}</div>`:''}
+      ${x.r!=null?`<div class="pb"><i style="width:${Math.min(100,x.r*100)}%"></i>${TU<1?`<u style="left:${TU*100}%"></u>`:''}</div>`:''}</div>`}).join('');
+    // heat
+    const low=[];
+    const rows=ars.map(a=>`<tr><td class="l">${E(a)}</td><td>${byA[a].length}</td>${pts.map(t=>US.map((u,ui)=>{const x=val(t,byA[a],M,P,R,u);if(!ui&&x.r!=null)low.push({a,t,x});return cell(x,t,a)}).join('')).join('')}</tr>`).join('');
+    const tot=`<tr class="tt"><td>TOTAL</td><td>${list.length}</td>${pts.map(t=>US.map(u=>{const x=val(t,list,M,P,R,u);const r=shown(x);return `<td>${r==null?f0(x.a):pct(r)}${mini(x)}</td>`}).join('')).join('')}</tr>`;
+    const rs=B?' rowspan="2"':'';
+    const hd=`<thead><tr><th${rs}>AREA</th><th${rs}>จำนวนสาขา</th>${pts.map(t=>`<th${B?' colspan="2"':''}>${E(label(t))}</th>`).join('')}</tr>${B?'<tr>'+pts.map(()=>'<th>QTY</th><th>NET</th>').join('')+'</tr>':''}</thead>`;
+    const crit=TU<1?TU:1;low.sort((p,q)=>(p.x.r-crit)-(q.x.r-crit));
+    const ttl=`${k?'%RR (Run Rate สิ้นเดือน เทียบเป้าหมาย)':'%ACH'} ทุกหัวข้อ × ทุก Area (${B?'QTY และ NET':US[0]==='n'?'NET':'QTY'})${P?' · ตัวเล็ก = ยอดขาย '+R.pchg.replace('%',''):''}`;
+    const kOK=rrK(R)!=null;
+    ov.innerHTML=`<div class="kp">${kp}</div><div class="gr"><div class="pn"><div class="ph"><span class="t">${ttl}</span><span class="h">คลิกช่องใดก็ได้ → เปิดหัวข้อนั้นพร้อมรายสาขาของ Area นั้น</span>
+      <span class="r"><button type="button" class="ch ${V2.all?'on':''}" id="v2all">${V2.all?'✓ ':''}แสดงทุกหัวข้อ</button>${kOK?`<button type="button" class="ch ${V2.rr?'on':''}" id="v2rr">${V2.rr?'✓ ':''}Run Rate</button>`:''}</span></div>
+      <div class="sc"><table>${hd}<tbody>${rows}${tot}</tbody></table></div>
+      <div class="nt">ตัวเลขสีเทา = หัวข้อที่ไม่มีเป้าหมาย แสดงยอดขายแทน · ${TU<1?`สี %ACH เทียบ Time Used ${pct(TU)} (${E(TUL)})`:'สี %ACH ตามเกณฑ์ปกติ'}${k?` · Run Rate = ยอดขาย × ${R.full.dim} วัน ÷ ${R.full.el} วันที่ผ่านไป (สูตรเดียวกับหน้าเดิม)`:''}${kOK?'':' · ปุ่ม Run Rate ใช้ได้เมื่อเลือกช่วง "เต็มเดือน" (ช่วง MTD เป้าหมายคิดตามจำนวนวันแล้ว %ACH จึงเท่ากับ %RR)'}</div></div>
+      <div class="pn"><div class="ph"><span class="t">รายการที่ต้องเร่ง</span><span class="h">7 จุดที่ %ACH ต่ำกว่า ${TU<1?'Time Used':'เป้าหมาย'} มากที่สุด (หัวข้อ × Area)</span></div>
+      <div class="td">${low.slice(0,7).map(c=>`<div data-t="${c.t.id}" data-a="${E(c.a)}"><b>${E(c.a)}</b> · ${E(label(c.t))} <span class="tg ${achT(c.x.r)}" style="display:inline;padding:0 4px;border-radius:4px;font-weight:700;color:#1F2D3D;font-size:12px">${pct(c.x.r)}</span><span>${c.x.r<crit?'ต่ำกว่า'+(TU<1?' Time Used ':'เป้าหมาย ')+((crit-c.x.r)*100).toFixed(1)+' จุด · ':''}ขาดอีก ${f0(Math.max(0,c.x.tg-c.x.a))}${c.x.ch!=null?' · '+R.pchg+' '+(c.x.ch>=0?'▲ +':'▼ ')+(c.x.ch*100).toFixed(1)+'%':''} · คลิกเพื่อดูรายสาขา</span></div>`).join('')||'<span style="color:#6B7684;font-size:12px">ไม่มีข้อมูลเป้าหมายในช่วงนี้</span>'}</div></div></div>`;
+    ov.querySelectorAll('[data-t]').forEach(el=>el.onclick=()=>goPr(el.dataset.t,el.dataset.a||null));
+    const ba=$('v2all');if(ba)ba.onclick=()=>{V2.all=!V2.all;drawOv()};const br=$('v2rr');if(br)br.onclick=()=>{V2.rr=!V2.rr;drawOv()};
+  }
+
+  /* ---------- หน้า Product ---------- */
+  const SPECIAL=new Set(['sum','staff','vel','v18','sth','sduo']);
+  const isProd=t=>!!t&&!SPECIAL.has(t.id)&&typeof t.cols==='function';
+  const GRP=[['Device',t=>t.id==='dev'||/^device/i.test(t.title||'')],['iPhone · iPad',t=>/iphone|ipad|pro max|duo/i.test(t.title||'')],['รุ่น Focus',t=>/model focus|tecno/i.test(t.title||'')],['GIA',t=>t.id==='gia'||/airpods|watch|gt7|suplife|acc|gia/i.test(t.title||'')],['Prepay',t=>/prepay/i.test(t.title||'')],['อื่นๆ',t=>true]];
+  const grpOf=t=>GRP.find(g=>g[1](t))[0];
+  function goPr(tabId,area){V2.page='pr';S.tab=tabId;S.level='area';S.sort=null;V2.open=new Set(area?[area]:[]);render();
+    setTimeout(()=>{const r=area&&ov.querySelector(`tr.ar[data-a="${CSS.escape(area)}"]`);if(r)r.scrollIntoView({block:'center'});else window.scrollTo({top:0})},50)}
+  function colsOf(tab,R){let c=tab.cols(R);if(R.full&&R.full.el)c=addRR(c,R.full);if(S.stk&&STK)c=addStock(c);c=addBrandModels(c,tab,R);c=c.filter(x=>!(S.tgm===2&&/^(TG|%ACH|GAP|RR|%RR)(\s|$)/.test(x.h)));return lwFirst(c,R)}
+  function drawPr(){
+    let tab=TABS.find(t=>t.id===S.tab);if(!isProd(tab)){tab=TABS.find(t=>t.id==='dev');S.tab='dev'}
+    const R=range(),list=shopFilter();const M=agg(R.a,R.effB,list),P=R.pOk?agg(R.pa,R.pb,list):null;
+    const tm=[...new Set(['DEV','GIA',...(tab.tm||[])].filter(k=>MI[k]!==undefined).map(k=>MI[k]))];
+    const keepLv=S.level;S.level='area';const B=buildRows(list,M,P,R,tm);
+    const cols=colsOf(tab,R);
+    const grp=[];cols.forEach(c=>{if(grp.length&&grp[grp.length-1].g===c.g)grp[grp.length-1].n++;else grp.push({g:c.g,n:1})});
+    const cell=(c,r,tot)=>{const x=c.v(r);let cl='num';if(!tot&&c.cf&&x!=null)cl+=' '+c.cf(x,r);if(!tot&&c.cls)cl+=' '+c.cls(x);return `<td class="${cl}">${c.f(x)}</td>`};
+    let rowsA=B.rows;if(S.sort!=null&&cols[S.sort]){const c=cols[S.sort];rowsA=[...rowsA].sort((a,b)=>(S.asc?1:-1)*((c.v(a)??-1e18)-(c.v(b)??-1e18)))}
+    let body='';
+    for(const r of rowsA){const op=V2.open.has(r.key);body+=`<tr class="ar" data-a="${E(r.key)}"><td class="l nm">${op?'▾':'▸'} ${E(r.name)}</td><td class="sb">${E(r.sub)}</td>${cols.map(c=>cell(c,r,false)).join('')}</tr>`;
+      if(op){const L2=list.filter(s=>s.area===r.key);S.level='shop';const b2=buildRows(L2,M,P,R,tm);S.level='area';
+        let sr=b2.rows;const ac=cols.find(c=>!c.cmp&&/^%ACH/.test(c.h));if(ac)sr=[...sr].sort((a,b)=>(ac.v(b)??-1e18)-(ac.v(a)??-1e18));
+        body+=sr.map(x=>`<tr class="sh"><td class="l nm2" title="${E(x.name)}">${E(x.name)}</td><td class="sb">${E(x.sub)}</td>${cols.map(c=>cell(c,x,false)).join('')}</tr>`).join('')}}
+    body+=`<tr class="tt"><td>TOTAL</td><td>${E(B.T.sub)}</td>${cols.map(c=>cell(c,B.T,true)).join('')}</tr>`;
+    S.level=keepLv;
+    const hd=`<thead><tr><th rowspan="2" style="text-align:center">AREA / สาขา</th><th rowspan="2">จำนวน / รหัส · Type</th>${grp.map(g=>`<th colspan="${g.n}">${E(g.g)}</th>`).join('')}</tr><tr>${cols.map((c,i)=>`<th data-i="${i}" style="cursor:pointer" title="คลิกเพื่อเรียง">${hdrH(c.h)}${S.sort===i?(S.asc?' ▲':' ▼'):''}</th>`).join('')}</tr></thead>`;
+    // KPI จากรายการหลัก
+    const US=S.unit==='b'?['q','n']:[S.unit==='n'?'n':'q'];const u=US[0];const x=val(tab,list,M,P,R,u);const xn=US.length>1?val(tab,list,M,P,R,'n'):null;
+    const k=R.full&&R.full.el?R.full.dim/R.full.el:null;const T0=D.targets[R.effB.slice(0,7)];
+    const remain=T0&&S.period!=='day'&&S.period!=='week'?Math.max(0,T0.days-(R.full?R.full.el:+R.effB.slice(8))):null;
+    const unitL=u==='n'?'บาท':'ชิ้น';
+    const kpi=`<div class="kp">
+     <div class="kc"><div class="k">ยอดขาย (${unitL})</div><div class="v">${f0(x.a)}</div><div class="s">${x.tg!=null?'เป้าหมาย '+f0(x.tg):'ไม่มีเป้าหมาย'}${x.ch!=null?` · ${R.pchg} <b style="color:${x.ch>=0?'#1D6FB8':'#B42318'}">${x.ch>=0?'▲ +':'▼ '}${(x.ch*100).toFixed(1)}%</b>`:''}</div>${xn?`<div class="s">NET ${f0(xn.a)} บาท${xn.r!=null?` · <span class="tg ${achT(xn.r)}">${pct(xn.r)}</span>`:''}</div>`:''}</div>
+     <div class="kc"><div class="k">%ACH</div><div class="v">${x.r!=null?pct(x.r):'—'}</div>${x.r!=null?`<div class="pb"><i style="width:${Math.min(100,x.r*100)}%"></i>${TU<1?`<u style="left:${TU*100}%"></u>`:''}</div>`:''}<div class="s" style="margin-top:4px">${TU<1?'เส้น = Time Used '+pct(TU):'ข้อมูลครบวัน'}${x.tg!=null?' · GAP '+f0(x.a-x.tg):''}</div></div>
+     <div class="kc"><div class="k">ยอดเฉลี่ยต่อวัน</div><div class="v">${f1(x.a/Math.max(1,R.n))}</div><div class="s">${R.n} วัน${remain&&x.tg!=null&&R.full?` · ต้องได้ ${f1(Math.max(0,x.tg-x.a)/remain)} ต่อวัน ใน ${remain} วันที่เหลือ`:''}</div></div>
+     <div class="kc"><div class="k">Run Rate สิ้นเดือน</div><div class="v">${k?f0(x.a*k):'—'}</div><div class="s">${k?(x.r!=null?`<span class="tg ${achCls(x.r*k)}">%RR ${pct(x.r*k)}</span> · `:'')+`ยอดขาย × ${R.full.dim} ÷ ${R.full.el} วัน`:'เลือกช่วง "เต็มเดือน" เพื่อดู Run Rate'}</div></div></div>`;
+    // อันดับ
+    const one=V2.open.size===1?[...V2.open][0]:null;
+    let items;if(one){const L2=list.filter(s=>s.area===one);items=L2.map(s=>({n:s.name,x:val(tab,[s],M,P,R,u)}))}else items=areas.filter(a=>list.some(s=>s.area===a)).map(a=>({n:a,x:val(tab,list.filter(s=>s.area===a),M,P,R,u)}));
+    const hasT=items.some(i=>i.x.r!=null);const sk=i=>hasT?(i.x.r??-1):i.x.a;items.sort((p,q)=>sk(q)-sk(p));const cut=items.length>18;const mx=Math.max(1,...items.map(i=>i.x.a));
+    const rk=items.map((it,i)=>(cut&&i>=8&&i<items.length-8)?(i===8?`<div class="nt" style="text-align:center">… ซ่อน ${items.length-16} รายการตรงกลาง …</div>`:''):`<div class="rr"><span class="i">${i+1}</span><span class="n" title="${E(it.n)}">${E(it.n)}</span><span class="p ${hasT&&it.x.r!=null?achT(it.x.r):''}">${hasT?(it.x.r!=null?pct(it.x.r):'—'):f0(it.x.a)}</span><div class="pb"><i style="width:${hasT?Math.min(100,(it.x.r||0)*100):it.x.a/mx*100}%"></i>${hasT&&TU<1?`<u style="left:${TU*100}%"></u>`:''}</div></div>`).join('');
+    // ยอดรายวัน (รายการหลัก)
+    const ms=misOf(tab),o=u==='n'?1:0,days=[];for(let t=toUTC(R.a);t<=toUTC(R.effB)&&days.length<62;t+=DAY)days.push(fromUTC(t));
+    const dv=days.map(d=>{const Md=agg(d,d,list);let s=0;for(const sh of list){const v=Md.get(sh.i);if(v)for(const mi of ms)s+=v[mi*2+o]}return s});const dm=Math.max(1,...dv);
+    const bars=days.length>1?`<div class="pn" style="margin-top:12px"><div class="ph"><span class="t">ยอดรายวัน</span><span class="h">${unitL} · รายการหลัก</span></div><div class="bars">${dv.map((v,i)=>`<div title="${days[i]}: ${f0(v)}" style="height:${v/dm*100}%"><span>${+days[i].slice(8)}</span></div>`).join('')}</div></div>`:'';
+    // ตัวเลือกสินค้า
+    const pts=TABS.filter(isProd);const gs=[...new Set(pts.map(grpOf))];
+    const pick=`<span class="pk"><button type="button" id="v2pk">${E(label(tab))} ▾</button>${V2.pop?`<div class="pop"><input type="text" id="v2pq" placeholder="พิมพ์ค้นหา เช่น iphone, watch, tecno…" value="${E(V2.q)}"><div class="pg">${gs.map(g=>`<h4>${g}</h4>`+pts.filter(t=>grpOf(t)===g).map(t=>`<a data-pt="${t.id}" data-lb="${E(label(t).toLowerCase())}" class="${t.id===tab.id?'on':''}">${E(label(t))}</a>`).join('')).join('')}</div></div>`:''}</span>`;
+    const quick=[['dev'],[/^device by brand$/i],[/^iphone focus$/i],[/^14 model focus$/i],[/^tecno focus$/i],['gia'],[/^prepay$/i]].map(([q])=>TABS.find(t=>typeof q==='string'?t.id===q:q.test(t.title||''))).filter(Boolean);
+    const ipk=tab.ti!=null&&D.tabs[tab.ti]?D.tabs[tab.ti].items:null;const sel=(S.ipick&&S.ipick[tab.ti])||new Set();
+    const chips=ipk&&ipk.length>1?`<div class="ip"><span class="h">แสดงรายการ:</span><button type="button" class="ch ${!sel.size?'on':''}" data-ip="">ทั้งหมด (${ipk.length})</button>${ipk.map(it=>`<button type="button" class="ch ${sel.has(it.k)?'on':''}" data-ip="${it.k}">${E(it.l)}</button>`).join('')}</div>`:'';
+    ov.innerHTML=`<div class="ph" style="margin-bottom:10px"><span class="h" style="font-size:12px">เลือกหัวข้อ</span>${pick}<span class="qk"><span class="h">ใช้บ่อย:</span>${quick.map(t=>`<button type="button" class="ch ${t.id===tab.id?'on':''}" data-pt="${t.id}">${E(label(t))}</button>`).join('')}</span></div>
+     ${kpi}<div class="gr"><div class="pn"><div class="ph"><span class="t">${E(label(tab))} — ราย Area</span><span class="h">คลิกชื่อ Area เพื่อกาง/พับรายสาขา · คลิกหัวคอลัมน์เพื่อเรียง</span>${V2.open.size?`<span class="r"><button type="button" class="ch" id="v2cl">พับทุก Area</button></span>`:''}</div>${chips}
+     <div class="sc"><table class="pt">${hd}<tbody>${body}</tbody></table></div><div class="nt">${TU<1?`สี %ACH เทียบ Time Used ${pct(TU)} (${E(TUL)})`:'สี %ACH ตามเกณฑ์ปกติ'}${R.full?' · มีคอลัมน์ RR / %RR (ช่วงเต็มเดือน)':''}</div></div>
+     <div><div class="pn"><div class="ph"><span class="t">อันดับ ${hasT?'%ACH':'ยอดขาย'}${sel.size?' — '+E(ipk.filter(it=>sel.has(it.k)).map(it=>it.l).join(', ')):''}</span><span class="h">${one?'สาขาใน '+E(one):'ราย Area'}${hasT&&TU<1?' · เส้น = Time Used':''}</span></div>${rk}</div>${bars}</div></div>`;
+    // events
+    ov.querySelectorAll('tr.ar').forEach(tr=>tr.querySelector('td').onclick=()=>{const a=tr.dataset.a;V2.open.has(a)?V2.open.delete(a):V2.open.add(a);drawPr()});
+    ov.querySelectorAll('th[data-i]').forEach(th=>th.onclick=()=>{const i=+th.dataset.i;if(S.sort===i)S.asc=!S.asc;else{S.sort=i;S.asc=false}drawPr()});
+    ov.querySelectorAll('[data-pt]').forEach(b=>b.onclick=()=>{S.tab=b.dataset.pt;S.sort=null;V2.pop=false;V2.q='';render()});
+    ov.querySelectorAll('[data-ip]').forEach(b=>b.onclick=()=>{const kk=b.dataset.ip;let st=new Set(S.ipick[tab.ti]||[]);if(!kk)st=new Set();else st.has(kk)?st.delete(kk):st.add(kk);if(st.size>=ipk.length)st=new Set();S.ipick[tab.ti]=st;S.sort=null;render()});
+    {const b=$('v2pk');if(b)b.onclick=e=>{e.stopPropagation();V2.pop=!V2.pop;drawPr();const q=$('v2pq');if(q)q.focus()}}
+    {const q=$('v2pq');if(q){q.onclick=e=>e.stopPropagation();q.oninput=()=>{V2.q=q.value;const z=q.value.trim().toLowerCase();ov.querySelectorAll('.pg a').forEach(a=>a.style.display=a.dataset.lb.includes(z)?'':'none')};q.oninput()}}
+    {const c=$('v2cl');if(c)c.onclick=()=>{V2.open=new Set();drawPr()}}
+  }
+
+  /* ---------- หน้า Brand (ใช้ข้อมูลแท็บ Device by Brand) ---------- */
+  function drawBr(){
+    const bt=TABS.find(t=>/^device by brand$/i.test(t.title||''));if(!bt||bt.ti==null){ov.innerHTML='<div class="pn">ไม่พบข้อมูล Device by Brand</div>';return}
+    const TB=D.tabs[bt.ti];const BRS=TB.items.filter(it=>!it.a&&MI[it.k]!=null);
+    const R=range(),list=shopFilter();const M=agg(R.a,R.effB,list),P=S.cmp&&R.pOk?agg(R.pa,R.pb,list):null;
+    const US=S.unit==='b'?['q','n']:[S.unit==='n'?'n':'q'];const B=US.length>1,C=!!P;const k=R.full&&R.full.el?R.full.dim/R.full.el:null;
+    const bv=(it,L,u)=>{const mi=MI[it.k],o=u==='n'?1:0;let a=0,p=0;for(const sh of L){const v=M.get(sh.i);if(v)a+=v[mi*2+o];const w=P&&P.get(sh.i);if(w)p+=w[mi*2+o]}const tg=tgSumL(mi,R.tw,u,L);return {a,p,tg,r:tg>0?a/tg:null,ch:P&&p?(a-p)/p:null}};
+    const fT=(x,u)=>x==null?'—':u==='n'?f0(x):f1(x);const chT=x=>x.ch==null?'—':`<span class="${x.ch>=0?'up':'dn'}" style="font-weight:700">${x.ch>=0?'▲ +':'▼ '}${(x.ch*100).toFixed(1)}%</span>`;
+    const ach=x=>`<td class="num ${x.r!=null?achT(x.r):''}">${x.r!=null?pct(x.r):'—'}</td>`;
+    // สรุปราย Brand
+    const totU=US.map(u=>{let a=0,p=0,tg=0,tok=false;BRS.forEach(it=>{const x=bv(it,list,u);a+=x.a;p+=x.p;if(x.tg!=null){tg+=x.tg;tok=true}});return {a,p,tg:tok?tg:null,r:tok&&tg>0?a/tg:null,ch:P&&p?(a-p)/p:null}});
+    const nU=4+(C?1:0)+(k?2:0);
+    const sumRow=(it)=>{const xs=US.map(u=>bv(it,list,u));const sh=totU[0].a?xs[0].a/totU[0].a:0;
+      return `<tr class="ar ${V2.bsel===it.k?'bs':''}" data-b="${it.k}"><td class="l nm">${E(it.l)}</td><td class="num"><span class="shb"><i style="width:${Math.min(100,sh*250)}%"></i></span>${pct(sh)}</td>${xs.map((x,i)=>`<td class="num">${fT(x.tg,US[i])}</td><td class="num"><b>${f0(x.a)}</b></td>${ach(x)}<td class="num">${x.tg!=null?fT(x.a-x.tg,US[i]):'—'}</td>${k?`<td class="num">${f0(x.a*k)}</td><td class="num ${x.r!=null?achCls(x.r*k):''}">${x.r!=null?pct(x.r*k):'—'}</td>`:''}${C?`<td class="num">${chT(x)}</td>`:''}`).join('')}</tr>`};
+    const sub=()=>'<th>TARGET</th><th>ACTUAL</th><th>%ACH</th><th>GAP</th>'+(k?'<th>RR</th><th>%RR</th>':'')+(C?`<th>${E(R.pchg)}</th>`:'');
+    const rs=B?' rowspan="2"':'';
+    const sumT=`<table class="pt"><thead><tr><th${rs}>Brand</th><th${rs}>SHARE</th>${B?US.map(u=>`<th colspan="${nU}">${u==='n'?'NET AMOUNT':'QTY'}</th>`).join('')+'</tr><tr>':''}${US.map(sub).join('')}</tr></thead><tbody>${BRS.map(sumRow).join('')}
+      <tr class="tt"><td>TOTAL</td><td>100.0%</td>${totU.map((x,i)=>`<td>${fT(x.tg,US[i])}</td><td>${f0(x.a)}</td><td>${x.r!=null?pct(x.r):'—'}</td><td>${x.tg!=null?fT(x.a-x.tg,US[i]):'—'}</td>${k?`<td>${f0(x.a*k)}</td><td>${x.r!=null?pct(x.r*k):'—'}</td>`:''}${C?`<td>${x.ch==null?'—':(x.ch>=0?'▲ +':'▼ ')+(x.ch*100).toFixed(1)+'%'}</td>`:''}`).join('')}</tr></tbody></table>`;
+    // Area × Brand
+    const bl=V2.bsel?BRS.filter(it=>it.k===V2.bsel):BRS;const n2=B?3:2;const nc=n2+(C?1:0);
+    const cells=L=>bl.map(it=>{const xs=US.map(u=>bv(it,L,u));return `<td class="num"><b>${f0(xs[0].a)}</b></td>${ach(xs[0])}${B?ach(xs[1]):''}${C?`<td class="num">${chT(xs[0])}</td>`:''}`}).join('');
+    const ars=areas.filter(a=>list.some(s=>s.area===a));let body='';
+    for(const a of ars){const L=list.filter(s=>s.area===a),op=V2.bopen.has(a);body+=`<tr class="ar" data-ba="${E(a)}"><td class="l nm">${op?'▾':'▸'} ${E(a)}</td><td class="sb">${L.length} สาขา</td>${cells(L)}</tr>`;
+      if(op)body+=L.map(s=>`<tr class="sh"><td class="l nm2" title="${E(s.name)}">${E(s.name)}</td><td class="sb">${E(s.code)} · ${E(s.type)}</td>${cells([s])}</tr>`).join('')}
+    body+=`<tr class="tt"><td>TOTAL</td><td>${list.length} สาขา</td>${bl.map(it=>{const xs=US.map(u=>bv(it,list,u));return `<td>${f0(xs[0].a)}</td><td>${xs[0].r!=null?pct(xs[0].r):'—'}</td>${B?`<td>${xs[1].r!=null?pct(xs[1].r):'—'}</td>`:''}${C?`<td>${xs[0].ch==null?'—':(xs[0].ch>=0?'▲ +':'▼ ')+(xs[0].ch*100).toFixed(1)+'%'}</td>`:''}`}).join('')}</tr>`;
+    const h2=bl.map(()=>(B?'<th>ACTUAL QTY</th><th>%ACH QTY</th><th>%ACH NET</th>':`<th>ACTUAL</th><th>%ACH</th>`)+(C?`<th>${E(R.pchg)}</th>`:'')).join('');
+    const mat=`<table class="pt"><thead><tr><th rowspan="2">AREA / สาขา</th><th rowspan="2">จำนวน / รหัส · Type</th>${bl.map(it=>`<th colspan="${nc}">${E(it.l)}</th>`).join('')}</tr><tr>${h2}</tr></thead><tbody>${body}</tbody></table>`;
+    // การ์ด
+    const top=[...BRS].map(it=>({it,x:bv(it,list,US[0])})).sort((p,q)=>q.x.a-p.x.a).slice(0,3);const T0=totU[0];
+    const card=(t,x,sh,key)=>`<div class="kc"${key?` data-b="${key}"`:''}><div class="k">${t}</div><div class="v">${f0(x.a)}${sh!=null?` <small>· สัดส่วน ${pct(sh)}</small>`:(x.tg!=null?` <small>/ เป้าหมาย ${f0(x.tg)}</small>`:'')}</div><div class="s">${x.r!=null?`<span class="tg ${achT(x.r)}">${pct(x.r)}</span>`:''}${x.ch!=null?` · ${E(R.pchg)} <b style="color:${x.ch>=0?'#1D6FB8':'#B42318'}">${x.ch>=0?'▲ +':'▼ '}${(x.ch*100).toFixed(1)}%</b>`:''}</div>${x.r!=null?`<div class="pb"><i style="width:${Math.min(100,x.r*100)}%"></i>${TU<1?`<u style="left:${TU*100}%"></u>`:''}</div>`:''}</div>`;
+    ov.innerHTML=`<div class="kp">${card('Device รวมทุก Brand — '+(US[0]==='n'?'NET (บาท)':'QTY'),T0,null)}${top.map((o,i)=>card('อันดับ '+(i+1)+' ยอดขาย — '+E(o.it.l),o.x,T0.a?o.x.a/T0.a:0,o.it.k)).join('')}</div>
+     <div class="pn" style="margin-bottom:12px"><div class="ph"><span class="t">สรุปราย Brand</span><span class="h">คลิกชื่อ Brand เพื่อดูเฉพาะ Brand นั้นในตาราง Area ด้านล่าง (คลิกซ้ำ = ดูทุก Brand)</span></div><div class="sc">${sumT}</div></div>
+     <div class="pn"><div class="ph"><span class="t">ราย Area × Brand${V2.bsel?' — เฉพาะ '+E(BRS.find(it=>it.k===V2.bsel).l):''}</span><span class="h">คลิกชื่อ Area เพื่อกาง/พับรายสาขา</span><span class="r">${V2.bsel?'<button type="button" class="ch" id="v2ball">ดูทุก Brand</button>':''}<button type="button" class="ch" id="v2bmod">ดูรายรุ่น (หน้า Product)</button></span></div><div class="sc">${mat}</div>
+     <div class="nt">ข้อมูลจากแท็บ Device by Brand เดิม · ${TU<1?`สี %ACH เทียบ Time Used ${pct(TU)}`:'สี %ACH ตามเกณฑ์ปกติ'}${k?' · RR = ยอดขาย × '+R.full.dim+' ÷ '+R.full.el+' วัน':''}</div></div>`;
+    ov.querySelectorAll('[data-b]').forEach(el=>el.onclick=()=>{const b=el.dataset.b;V2.bsel=V2.bsel===b?null:b;drawBr()});
+    ov.querySelectorAll('tr[data-ba]').forEach(tr=>tr.querySelector('td').onclick=()=>{const a=tr.dataset.ba;V2.bopen.has(a)?V2.bopen.delete(a):V2.bopen.add(a);drawBr()});
+    {const b=$('v2ball');if(b)b.onclick=()=>{V2.bsel=null;drawBr()}}
+    {const b=$('v2bmod');if(b)b.onclick=()=>{if(V2.bsel){S.ipick[bt.ti]=new Set([V2.bsel])}goPr(bt.id,null)}}
+  }
+
+  /* ---------- หน้า Shop ---------- */
+  function drawSh(){
+    const R=range(),list=shopFilter();const M=agg(R.a,R.effB,list),P=S.cmp&&R.pOk?agg(R.pa,R.pb,list):null;
+    const US=S.unit==='b'?['q','n']:[S.unit==='n'?'n':'q'];const B=US.length>1;const C=!!P;const k=R.full&&R.full.el?R.full.dim/R.full.el:null;
+    const chT=x=>x.ch==null?'':`<span class="mi ${x.ch>=0?'up':'dn'}">${x.ch>=0?'▲ +':'▼ '}${(x.ch*100).toFixed(1)}%</span>`;
+    const achTd=x=>`<td class="num ${x.r!=null?achT(x.r):''}">${x.r!=null?pct(x.r):'—'}</td>`;
+    const s=V2.shop!=null?list.find(x=>x.code===V2.shop)||shops.find(x=>x.code===V2.shop):null;
+    const head=`<div class="ph" style="margin-bottom:10px"><span class="h" style="font-size:12px">ค้นหาสาขา</span><input id="v2sq" list="v2sl" placeholder="พิมพ์ชื่อ / รหัสสาขา / Area / Type Shop…" value="${E(s?s.name:V2.sq)}" style="font:inherit;font-size:14px;padding:6px 10px;border:1.5px solid #1B4F84;border-radius:7px;background:#F4F9FE;width:380px"><datalist id="v2sl">${list.map(x=>`<option value="${E(x.name)}">${E(x.code)} · ${E(x.area)} · ${E(x.type)}</option>`).join('')}</datalist>${s?'<button type="button" class="ch" id="v2sall">ดูสาขาทั้งหมด</button>':''}</div>`;
+    if(!s){
+      const main=['dev','gia',/^prepay$/i].map(q=>TABS.find(t=>typeof q==='string'?t.id===q:q.test(t.title||''))).filter(Boolean);
+      const sub=main.map(()=>B?'<th>ACTUAL QTY</th><th>%ACH QTY</th><th>ACTUAL NET</th><th>%ACH NET</th>':'<th>TARGET</th><th>ACTUAL</th><th>%ACH</th>'+(k?'<th>%RR</th>':'')).join('');
+      const cells=L=>main.map(t=>{if(B)return US.map(u=>{const x=val(t,L,M,P,R,u);return `<td class="num"><b>${f0(x.a)}</b>${chT(x)}</td>${achTd(x)}`}).join('');const u=US[0],x=val(t,L,M,P,R,u);return `<td class="num">${x.tg!=null?(u==='n'?f0(x.tg):f1(x.tg)):'—'}</td><td class="num"><b>${f0(x.a)}</b>${chT(x)}</td>${achTd(x)}${k?`<td class="num ${x.r!=null?achCls(x.r*k):''}">${x.r!=null?pct(x.r*k):'—'}</td>`:''}`}).join('');
+      const tcells=main.map(t=>US.map(u=>{const x=val(t,list,M,P,R,u);return B?`<td>${f0(x.a)}</td><td>${x.r!=null?pct(x.r):'—'}</td>`:`<td>${x.tg!=null?(u==='n'?f0(x.tg):f1(x.tg)):'—'}</td><td>${f0(x.a)}</td><td>${x.r!=null?pct(x.r):'—'}</td>${k?`<td>${x.r!=null?pct(x.r*k):'—'}</td>`:''}`}).join('')).join('');
+      const nc=B?4:3+(k?1:0);
+      ov.innerHTML=head+`<div class="pn"><div class="ph"><span class="t">สาขาทั้งหมด</span><span class="h">${list.length} สาขา ตามตัวกรอง Area / Type Shop · พิมพ์ในช่องค้นหาเพื่อกรองรายการ · คลิกชื่อสาขาเพื่อดูทุกหัวข้อของสาขานั้น${C?' · ตัวเล็ก = ยอดขาย '+E(R.pchg.replace('%','')):''}</span></div>
+       <div class="sc" style="max-height:72vh;overflow:auto"><table class="pt" id="v2stb"><thead><tr><th rowspan="2">สาขา</th><th rowspan="2">รหัส</th><th rowspan="2">Area</th><th rowspan="2">Type Shop</th>${main.map(t=>`<th colspan="${nc}">${E(label(t))}</th>`).join('')}</tr><tr>${sub}</tr></thead>
+       <tbody>${list.map(x=>`<tr data-row="${E((x.name+' '+x.code+' '+x.area+' '+x.type).toLowerCase())}"><td class="l nm" data-sh="${x.code}" style="cursor:pointer;text-align:left">${E(x.name)}</td><td class="sb">${E(x.code)}</td><td class="sb" style="text-align:left">${E(x.area)}</td><td class="sb">${E(x.type)}</td>${cells([x])}</tr>`).join('')}
+       <tr class="tt"><td>TOTAL</td><td>${list.length} สาขา</td><td></td><td></td>${tcells}</tr></tbody></table></div></div>`;
+      const q=$('v2sq');const flt=()=>{const z=q.value.trim().toLowerCase();V2.sq=q.value;ov.querySelectorAll('#v2stb [data-row]').forEach(r=>r.style.display=r.dataset.row.includes(z)?'':'none')};
+      q.oninput=()=>{const hit=list.find(x=>x.name===q.value);if(hit){V2.shop=hit.code;drawSh();return}flt()};flt();
+    }else{
+      const L=[s];const Ms=agg(R.a,R.effB,L),Ps=S.cmp&&R.pOk?agg(R.pa,R.pb,L):null;
+      const pts=TABS.filter(t=>isProd(t)&&!/device by brand|สัดส่วน acc/i.test(t.title||'')&&t.id!=='acc');
+      const main=pts.filter(t=>t.id==='dev'||t.id==='gia'||/^prepay$/i.test(t.title||''));const foc=pts.filter(t=>!main.includes(t));
+      const nU=4+(k?2:0)+(C?1:0);
+      const hd=`<thead><tr><th${B?' rowspan="2"':''}>หัวข้อ</th>${B?US.map(u=>`<th colspan="${nU}">${u==='n'?'NET AMOUNT':'QTY'}</th>`).join('')+'</tr><tr>':''}${US.map(()=>'<th>TARGET</th><th>ACTUAL</th><th>%ACH</th><th>GAP</th>'+(k?'<th>RR</th><th>%RR</th>':'')+(C?`<th>${E(R.pchg)}</th>`:'')).join('')}</tr></thead>`;
+      const row=t=>`<tr><td class="l nm" data-pt="${t.id}" style="cursor:pointer" title="เปิดหัวข้อนี้ในหน้า Product">${E(label(t))}</td>${US.map(u=>{const x=val(t,L,Ms,Ps,R,u),fT=v=>v==null?'—':u==='n'?f0(v):f1(v);return `<td class="num">${fT(x.tg)}</td><td class="num"><b>${f0(x.a)}</b></td>${achTd(x)}<td class="num">${x.tg!=null?fT(x.a-x.tg):'—'}</td>${k?`<td class="num">${f0(x.a*k)}</td><td class="num ${x.r!=null?achCls(x.r*k):''}">${x.r!=null?pct(x.r*k):'—'}</td>`:''}${C?`<td class="num">${x.ch==null?'—':`<span class="${x.ch>=0?'up':'dn'}" style="font-weight:700">${x.ch>=0?'▲ +':'▼ '}${(x.ch*100).toFixed(1)}%</span>`}</td>`:''}`}).join('')}</tr>`;
+      const tot=ts=>`<tr class="tt"><td>TOTAL (${ts.length} หัวข้อ)</td>${US.map(()=>'<td colspan="'+nU+'" style="font-weight:400;font-size:11.5px">แต่ละหัวข้อนับรายการซ้อนกัน จึงไม่รวมยอด</td>').join('')}</tr>`;
+      const kc=t=>{const x=val(t,L,Ms,Ps,R,US[0]);return `<div class="kc" data-pt="${t.id}"><div class="k">${E(label(t))}</div><div class="v">${f0(x.a)}${x.tg!=null?` <small>/ ${f0(x.tg)}</small>`:''}</div>${x.r!=null?`<div class="s"><span class="tg ${achT(x.r)}">${pct(x.r)}</span></div><div class="pb"><i style="width:${Math.min(100,x.r*100)}%"></i>${TU<1?`<u style="left:${TU*100}%"></u>`:''}</div>`:''}</div>`};
+      ov.innerHTML=head+`<div class="kp"><div class="kc" style="cursor:default"><div class="k">สาขา</div><div class="v" style="font-size:16px">${E(s.name)}</div><div class="s">รหัส ${E(s.code)} · Type Shop: ${E(s.type)}</div><div class="s">Area: <b>${E(s.area)}</b></div></div>${main.map(kc).join('')}</div>
+       <div class="gr" style="grid-template-columns:1fr 1fr"><div class="pn"><div class="ph"><span class="t">หัวข้อหลัก</span><span class="h">คลิกชื่อหัวข้อเพื่อเปิดในหน้า Product</span><span class="r"><button type="button" class="ch" id="v2sst">ดูพนักงานของสาขานี้ (Staff)</button></span></div><div class="sc"><table class="pt">${hd}<tbody>${main.map(row).join('')}</tbody></table></div></div>
+       <div class="pn"><div class="ph"><span class="t">หัวข้อ Focus ทั้งหมด</span><span class="h">${foc.length} หัวข้อ</span></div><div class="sc"><table class="pt">${hd}<tbody>${foc.map(row).join('')}${tot(foc)}</tbody></table></div></div></div>`;
+      ov.querySelectorAll('[data-pt]').forEach(el=>el.onclick=()=>{S.areas=new Set(areas);goPr(el.dataset.pt,s.area)});
+      {const b=$('v2sst');if(b)b.onclick=()=>{S.shop=s.code;V2.stShop=true;V2.page='st';S.tab='staff';render();window.scrollTo({top:0})}}
+      const q=$('v2sq');q.oninput=()=>{const hit=list.find(x=>x.name===q.value);if(hit){V2.shop=hit.code;drawSh()}};
+    }
+    ov.querySelectorAll('[data-sh]').forEach(el=>el.onclick=()=>{V2.shop=el.dataset.sh;drawSh();window.scrollTo({top:0})});
+    {const b=$('v2sall');if(b)b.onclick=()=>{V2.shop=null;V2.sq='';drawSh()}}
+  }
+  /* ---------- หน้า Staff / Stock · Hourly: ใช้ตารางเดิม (ซ่อนแถบแท็บเดิม) ---------- */
+  function drawEmb(){
+    if(V2.page==='st'){if(S.tab!=='staff'){S.tab='staff';render();return}
+      ov.innerHTML=`<div class="ph"><span class="t">พนักงานขาย</span><span class="h">ใช้ตารางและตัวเลือกเดิมทั้งหมด (เลือกหมวดสินค้า / ค้นหาพนักงาน ได้ในตารางด้านล่าง)${S.shop?` · กรองเฉพาะสาขา <b>${E((shops.find(x=>x.code===S.shop)||{}).name||S.shop)}</b> <button type="button" class="ch" id="v2stx">ดูทุกสาขา</button>`:''}</span></div>`;
+      {const b=$('v2stx');if(b)b.onclick=()=>{S.shop='';V2.stShop=false;render()}}return}
+    const TL=['vel','v18','sduo','sth'].map(id=>TABS.find(t=>t.id===id)).filter(Boolean);
+    if(!TL.some(t=>t.id===S.tab)){S.tab=(TL.find(t=>t.id===V2.tl)||TL[0]).id;render();return}
+    V2.tl=S.tab;
+    ov.innerHTML=`<div class="ph"><span class="t">Stock · Hourly</span><span class="qk">${TL.map(t=>`<button type="button" class="ch ${t.id===S.tab?'on':''}" data-tl="${t.id}">${E(t.title)}</button>`).join('')}</span><span class="h">ตาราง/กราฟเดิมทั้งหมดอยู่ด้านล่าง</span></div>`;
+    ov.querySelectorAll('[data-tl]').forEach(b=>b.onclick=()=>{V2.tl=b.dataset.tl;S.tab=V2.tl;render()});
+  }
+
+  /* ---------- ปุ่ม 📷 คัดลอกรูปเข้า LINE (ใช้ระบบเดิม .pshot) — ทุกกล่องในหน้าใหม่ + ทั้งหน้า ---------- */
+  const PGN={ov:'Overview',pr:'Product',br:'Brand',sh:'Shop'};
+  function addShots(){if(!PGN[V2.page])return;let i=0;
+    ov.querySelectorAll('.pn').forEach(pn=>{const ph=pn.querySelector(':scope>.ph');i++;if(!ph||ph.querySelector('.pshot'))return;pn.id='v2p'+i;const t=ph.querySelector('.t');
+      const b=document.createElement('button');b.type='button';b.className='chip pshot';b.dataset.shot=pn.id;b.dataset.cap=PGN[V2.page]+' · '+(t?t.textContent:'');b.title='คัดลอกกล่องนี้เป็นรูป แล้ว Ctrl+V ใน LINE · Shift+คลิก = บันทึกไฟล์ด้วย';b.textContent='📷';b.style.cssText='font-size:12px;padding:2px 9px';(t||ph.firstChild).after(b)});
+    const kp=ov.querySelector('.kp');if(kp&&!kp.id)kp.id='v2kp';
+    if(!nav.querySelector('.pshot')){const b=document.createElement('button');b.type='button';b.className='chip pshot';b.dataset.shot='v2ov';b.dataset.cap=PGN[V2.page]+' · ทั้งหน้า';b.textContent='📷 ทั้งหน้า';b.title='คัดลอกทั้งหน้า (การ์ด + ตารางทุกแถว) เป็นรูป';b.style.cssText='opacity:1;font-size:12px;padding:4px 10px;margin-left:8px';const sp=nav.querySelector('.sp');nav.insertBefore(b,sp)}}
+  /* ซ่อน/แสดง แผงด้านขวา (อันดับ / รายการที่ต้องเร่ง) — ให้ตารางกว้างเต็มจอ · จำค่าไว้ในเครื่อง */
+  try{if(localStorage.getItem('v2noside')==='1')document.body.classList.add('v2noside')}catch(e){}
+  function addSideTg(){const g=ov.querySelector('.gr');if(!g||g.getAttribute('style')||g.children.length<2)return;const ph=g.querySelector('.pn>.ph');if(!ph||ph.querySelector('.sdt'))return;
+    const hid=document.body.classList.contains('v2noside');const b=document.createElement('button');b.type='button';b.className='ch sdt';
+    b.textContent=hid?'◂ แสดงแผงด้านขวา':'ซ่อนแผงด้านขวา ▸';b.title=hid?'แสดงกล่องอันดับ / รายการที่ต้องเร่ง กลับมา':'ซ่อนกล่องด้านขวา ให้ตารางกว้างเต็มจอ';b.style.marginLeft='auto';
+    b.onclick=()=>{const on=!document.body.classList.contains('v2noside');document.body.classList.toggle('v2noside',on);try{localStorage.setItem('v2noside',on?'1':'0')}catch(e){};b.textContent=on?'◂ แสดงแผงด้านขวา':'ซ่อนแผงด้านขวา ▸'};
+    const r=ph.querySelector('.r');if(r){r.appendChild(b);b.style.marginLeft='0'}else ph.appendChild(b)}
+  new MutationObserver(()=>{addShots();addSideTg()}).observe(ov,{childList:true});
+  document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('.pshot[data-cap]');if(!b)return;const node=$(b.dataset.shot);if(!node)return;
+    setTimeout(()=>{const c=node.querySelector('.shotcap2 b');if(c)c.textContent=b.dataset.cap.replace(/\s*📷\s*/g,'')},0)},true);
+  document.addEventListener('click',e=>{if(V2.pop&&!e.target.closest('.pk')){V2.pop=false;if(V2.page==='pr')drawPr()}});
+  document.addEventListener('click',e=>{if(e.target.closest&&e.target.closest('#tabGroups button,#tabs .tab'))V2.page='old'},true);
+  const _rd=render;render=function(){_rd.apply(this,arguments);
+    try{const emb=V2.page==='st'||V2.page==='tl';document.body.classList.toggle('v2on',V2.page!=='old'&&!emb);document.body.classList.toggle('v2emb',emb);drawNav();if(emb)drawEmb();else if(V2.page==='ov')drawOv();else if(V2.page==='sh')drawSh();else if(V2.page==='pr')drawPr();else if(V2.page==='br')drawBr();else ov.innerHTML=''}
+    catch(e){ov.innerHTML='<div class="pn" style="color:#B42318">สร้างหน้า Overview ไม่ได้: '+E(e.message)+'</div>';console.error(e)}};
+})()}catch(e){console.error('V2',e)}
+
 buildStatic();render();
 
 /* [4 พ.ย. 2026] กลุ่มแท็บ (Summary · Device · GIA · iPhone·iPad · Staff) + ตัวกรองเพิ่มเติม */
@@ -2544,6 +2987,85 @@ try{(function(){
 })()}catch(err){console.warn('tabGroups',err)}
 
 })();
+</script>
+<script>/* ===== [13 พ.ย. 2026] หน้าตาใหม่ v2 — รอบ 1: ย้ายปุ่มกลุ่มแท็บขึ้นแถบบน ===== */
+(function(){let n=0;const t=setInterval(()=>{const g=document.getElementById('tabGroups'),h=document.querySelector('header.top');
+ if(g&&h&&g.children.length){if(g.parentElement!==h){const u=h.querySelector('.upd');h.insertBefore(g,u)}
+  document.querySelectorAll('.bar .fld>.lb').forEach(l=>{if(!l.textContent.trim())l.style.display='none'});clearInterval(t)}
+ if(++n>600)clearInterval(t)},100)})();
+</script>
+<script>/* ===== [13 พ.ย. 2026] หน้าตาใหม่ v2 — รอบ 2: กล่องอันดับ %ACH (QTY/NET) ด้านขวา + กราฟใต้ตาราง + การ์ดยอดเฉลี่ย/วัน และคาดการณ์ ===== */
+(function(){let n=0;const t=setInterval(()=>{const tb=document.getElementById('tblBoth'),tbl=document.getElementById('tbl'),cr=document.getElementById('chartRow');
+ if(!(tb&&tbl&&tbl.rows.length)){if(++n>600)clearInterval(t);return}clearInterval(t);
+ const grid=document.createElement('div');grid.id='v2grid';tb.parentElement.insertBefore(grid,tb);grid.appendChild(tb);
+ const side=document.createElement('aside');side.id='v2side';grid.appendChild(side);
+ if(cr)grid.after(cr);
+ const rs=()=>window.dispatchEvent(new Event('resize'));
+ let mode='q';
+ const num=s=>{const m=String(s).replace(/,/g,'').match(/-?\d+(\.\d+)?/);return m?+m[0]:null};
+ const tu=()=>{const m=(document.getElementById('rangeLbl')||{}).textContent;const x=m&&m.match(/Time Used\s*([\d.]+)%/);return x?+x[1]:null};
+ function leafCols(){const rows=[...tbl.querySelectorAll('thead tr')];if(!rows.length)return [];const grid=[];rows.forEach((r,ri)=>{grid[ri]=grid[ri]||[];let c=0;[...r.children].forEach(th=>{while(grid[ri][c])c++;const cs=th.colSpan||1,rs=th.rowSpan||1;for(let i=0;i<rs;i++)for(let j=0;j<cs;j++){grid[ri+i]=grid[ri+i]||[];grid[ri+i][c+j]=th}c+=cs})});
+  const last=grid[grid.length-1]||[];return last.map((th,ci)=>({ci,leaf:(th.textContent||'').trim(),top:(grid[0][ci]&&grid[0][ci]!==th?grid[0][ci].textContent.trim():'')}))}
+ function draw(){const lc=leafCols();const first=(lc[0]||{}).leaf||'';
+  const ni=Math.max(0,lc.findIndex(c=>!/^(#|no\.?|ลำดับ|รหัส)/i.test(c.leaf)));const ok=!!tbl.tBodies.length;if(!ok){grid.classList.add('noside');return}
+  const qc=lc.find(c=>/^%ACH/.test(c.leaf));const nc=lc.find(c=>/^%ACH/.test(c.leaf)&&/NET/i.test(c.top));
+  if(!qc){grid.classList.add('noside');return}grid.classList.remove('noside');
+  if(mode==='n'&&!nc)mode='q';const col=mode==='n'?nc:qc;
+  const rows=[...tbl.tBodies[0].rows].filter(r=>!r.classList.contains('total')&&r.cells.length>col.ci);
+  const it=rows.map(r=>{const c=r.cells[col.ci];return {n:(r.cells[ni]||r.cells[0]).textContent.trim(),p:num(c.textContent),cls:c.className,td:r.cells[ni]||r.cells[0]}}).filter(x=>x.p!=null&&x.n);
+  it.sort((a,b)=>b.p-a.p);const pace=tu();const lbl=col.top&&!/NET/i.test(col.top)&&col.top!=='QTY'?col.top:'';
+  side.innerHTML=`<h3>อันดับ %ACH ${nc?`<span class="rseg"><button data-m="q" class="${mode==='q'?'on':''}">QTY</button><button data-m="n" class="${mode==='n'?'on':''}">NET</button></span>`:''}<button type="button" class="chip pshot" data-shot="v2side" style="font-size:11px;padding:1px 8px;margin-left:auto" title="คัดลอกกล่องนี้เป็นรูป แล้ว Ctrl+V ใน LINE">📷</button><span class="h">${lbl?lbl+' · ':''}${pace!=null?'เส้น = Time Used '+pace.toFixed(1)+'% · ':''}คลิกชื่อเพื่อดูรายละเอียด</span></h3>`+
+   it.map((x,i)=>(it.length>18&&i>=8&&i<it.length-8)?(i===8?'<div class="ft" style="text-align:center">… ซ่อน '+(it.length-16)+' รายการตรงกลาง (ดูทั้งหมดในตาราง) …</div>':''):`<div class="rr" data-i="${i}"><span class="i">${i+1}</span><span class="n" title="${x.n}">${x.n}</span><span class="p ${x.cls}">${x.p.toFixed(1)}%</span><div class="t"><i style="width:${Math.max(0,Math.min(x.p,100))}%"></i>${pace!=null?`<u style="left:${Math.min(pace,100)}%"></u>`:''}</div></div>`).join('')+
+   `<div class="ft">เรียงจาก %ACH ${mode==='n'?'NET':'QTY'} มากไปน้อย · สีเดียวกับตาราง</div>`;
+  side.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{mode=b.dataset.m;draw()});
+  side.querySelectorAll('.rr').forEach(d=>d.onclick=()=>{const x=it[+d.dataset.i];const a=x.td.querySelector('a,span,button')||x.td;a.click()});}
+ function kpiX(){const k=document.getElementById('kpis');if(!k||k.querySelector('.v2x'))return;const c=k.querySelector('.kpi');if(!c)return;
+  const v=num((c.querySelector('.v')||{}).textContent),s=(c.querySelector('.s')||{}).textContent||'',tg=num((s.match(/เป้า\s*([\d,.]+)/)||[])[1]);const nm=((c.querySelector('.k')||{}).textContent||'').trim();
+  const rl=(document.getElementById('rangeLbl')||{}).textContent||'';const d=num((rl.match(/(\d+)\s*วัน/)||[])[1]);const p=tu();if(v==null)return;
+  const f=x=>x.toLocaleString('en-US',{maximumFractionDigits:1});
+  const mk=(h,val,sub)=>{const e=document.createElement('div');e.className='kpi v2x';e.style.setProperty('--c','#1B4F84');e.innerHTML=`<div class="k">${h}</div><div class="v">${val}</div><div class="s">${sub}</div>`;k.appendChild(e)};
+  if(d)mk('ยอดเฉลี่ย/วัน — '+nm.replace(/\s*\(.*\)/,''),f(v/d),`${f(v)} ÷ ${d} วัน`);
+  if(p&&tg){const fc=v/(p/100);mk('คาดการณ์ถึงสิ้นช่วง — '+nm.replace(/\s*\(.*\)/,''),f(Math.round(fc)),`${(fc/tg*100).toFixed(1)}% ของเป้า ${f(tg)} (ตาม Time Used ${p.toFixed(1)}%)`)}}
+ let q=0;const go=()=>{if(q)return;q=requestAnimationFrame(()=>{q=0;const was=grid.className;draw();kpiX();if(grid.className!==was||!go.d){go.d=1;rs()}})};
+ new MutationObserver(go).observe(tbl,{childList:true,subtree:true});const k=document.getElementById('kpis');if(k)new MutationObserver(go).observe(k,{childList:true});
+ go();setTimeout(rs,300);},100)})();
+</script>
+<script>/* ===== [13 พ.ย. 2026] หน้าตาใหม่ v2 — รอบ 3: กล่องอันดับรายสาขา (ตาราง 2) ด้านขวา ใต้อันดับ Area ===== */
+(function(){let n=0;const t=setInterval(()=>{const grid=document.getElementById('v2grid'),sp=document.getElementById('shopPanel');
+ if(!(grid&&sp)){if(++n>600)clearInterval(t);return}clearInterval(t);
+ const side2=document.createElement('aside');side2.id='v2side2';side2.hidden=true;grid.appendChild(side2);
+ let mode='q';
+ const num=s=>{const m=String(s).replace(/,/g,'').match(/-?\d+(\.\d+)?/);return m?+m[0]:null};
+ const tu=()=>{const m=(document.getElementById('rangeLbl')||{}).textContent;const x=m&&m.match(/Time Used\s*([\d.]+)%/);return x?+x[1]:null};
+ function draw(){const tb=sp.querySelector('table');if(sp.hidden||!tb||!tb.tBodies.length||grid.classList.contains('noside')){side2.hidden=true;return}
+  const hr=[...tb.querySelectorAll('thead tr')];if(hr.length<2){side2.hidden=true;return}
+  const g=[];hr.forEach((r,ri)=>{g[ri]=g[ri]||[];let c=0;[...r.children].forEach(th=>{while(g[ri][c])c++;const cs=th.colSpan||1,rs=th.rowSpan||1;for(let i=0;i<rs;i++)for(let j=0;j<cs;j++){g[ri+i]=g[ri+i]||[];g[ri+i][c+j]=th}c+=cs})});
+  const last=g[g.length-1];const cols=last.map((th,ci)=>({ci,leaf:th.textContent.trim(),top:(g[0][ci]!==th?g[0][ci].textContent.trim():'')}));
+  const qc=cols.find(c=>/^%ACH/.test(c.leaf)&&!/NET/i.test(c.top)),nc=cols.find(c=>/^%ACH/.test(c.leaf)&&/NET/i.test(c.top));
+  if(!qc){side2.hidden=true;return}if(mode==='n'&&!nc)mode='q';const col=mode==='n'?nc:qc;
+  const it=[...tb.tBodies[0].rows].filter(r=>!r.classList.contains('total')&&r.cells.length>col.ci).map(r=>({n:r.cells[0].textContent.trim(),p:num(r.cells[col.ci].textContent),cls:r.cells[col.ci].className,td:r.cells[0]})).filter(x=>x.p!=null&&x.n);
+  if(!it.length){side2.hidden=true;return}
+  it.sort((a,b)=>b.p-a.p);const pace=tu();side2.hidden=false;const cut=it.length>18;
+  const title=((sp.querySelector('.tblhead .t')||{}).textContent||'รายสาขา').replace(/^Device\s*—\s*/,'');
+  side2.innerHTML=`<h3>อันดับสาขา %ACH <span class="rseg"><button data-m="q" class="${mode==='q'?'on':''}">QTY</button>${nc?`<button data-m="n" class="${mode==='n'?'on':''}">NET</button>`:''}</span><span class="h">${title} · ${it.length} สาขา${pace!=null?' · เส้น = Time Used '+pace.toFixed(1)+'%':''}</span></h3>`+
+   it.map((x,i)=>(cut&&i>=8&&i<it.length-8)?(i===8?`<div class="ft" style="text-align:center">… ซ่อน ${it.length-16} สาขาตรงกลาง (ดูทั้งหมดในตาราง) …</div>`:''):`<div class="rr" data-i="${i}"><span class="i">${i+1}</span><span class="n" title="${x.n}">${x.n}</span><span class="p ${x.cls}">${x.p.toFixed(1)}%</span><div class="t"><i style="width:${Math.max(0,Math.min(x.p,100))}%"></i>${pace!=null?`<u style="left:${Math.min(pace,100)}%"></u>`:''}</div></div>`).join('')+
+   `<div class="ft">เรียงจาก %ACH ${mode==='n'?'NET':'QTY'} มากไปน้อย · ${cut?'แสดง 8 อันดับแรก/ท้าย':'แสดงทุกสาขาที่เลือก'}</div>`;
+  side2.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{mode=b.dataset.m;draw()});
+  side2.querySelectorAll('.rr').forEach(d=>d.onclick=()=>{const x=it[+d.dataset.i];x.td.scrollIntoView({block:'center',behavior:'smooth'});x.td.parentElement.animate([{outline:'2px solid #007AD0'},{outline:'2px solid transparent'}],{duration:1400})})}
+ let q=0;const go=()=>{if(q)return;q=requestAnimationFrame(()=>{q=0;draw()})};
+ new MutationObserver(go).observe(sp,{childList:true,subtree:true,attributes:true,attributeFilter:['hidden']});
+ const tbl=document.getElementById('tbl');if(tbl)new MutationObserver(go).observe(tbl,{childList:true,subtree:true});go();},150)})();
+</script>
+<script>/* ===== [13 พ.ย. 2026] หน้าตาใหม่ v2 — ซ่อนคอลัมน์ "อื่นๆ (รุ่นเก่า)" ของ iPhone Focus (ยังรวมยอดใน TOTAL ตามเดิม) ===== */
+(function(){const NAME='อื่นๆ (รุ่นเก่า)';
+ function hide(tb){if(!tb||!tb.tHead)return;const rows=[...tb.tHead.rows];const g=[];rows.forEach((r,ri)=>{g[ri]=g[ri]||[];let c=0;[...r.children].forEach(th=>{while(g[ri][c])c++;const cs=th.colSpan||1,rs=th.rowSpan||1;for(let i=0;i<rs;i++)for(let j=0;j<cs;j++){g[ri+i]=g[ri+i]||[];g[ri+i][c+j]=th}c+=cs})});
+  const idx=new Set();(g[0]||[]).forEach((th,ci)=>{if(th&&th.textContent.replace(/\s+/g,' ').trim()===NAME)idx.add(ci)});if(!idx.size)return;
+  g.forEach(row=>{const seen=new Set();idx.forEach(ci=>{const th=row[ci];if(th&&!seen.has(th)){seen.add(th);th.style.display='none'}})});
+  [...tb.tBodies].forEach(b=>[...b.rows].forEach(r=>{if(r.cells.length>=(g[0]||[]).length)idx.forEach(ci=>{if(r.cells[ci])r.cells[ci].style.display='none'})}));}
+ function chips(){document.querySelectorAll('.ipick .chip,#iPick .chip').forEach(c=>{if(c.textContent.replace(/\s+/g,' ').trim()===NAME)c.style.display='none'})}
+ let q=0;const go=()=>{if(q)return;q=requestAnimationFrame(()=>{q=0;hide(document.getElementById('tbl'));hide(document.getElementById('tbl2'));chips()})};
+ const t=setInterval(()=>{const tbl=document.getElementById('tbl');if(!tbl)return;clearInterval(t);
+  new MutationObserver(go).observe(document.querySelector('.wrap')||document.body,{childList:true,subtree:true});go()},200)})();
 </script>
 </body>
 </html>
